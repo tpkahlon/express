@@ -1,6 +1,9 @@
 # Created by https://www.gitignore.io/api/git,node,linux,macos,dotenv,windows,visualstudiocode
 # Edit at https://www.gitignore.io/?templates=git,node,linux,macos,dotenv,windows,visualstudiocode
 
+yarn.lock
+package-lock.json
+
 ### dotenv ###
 .env
 
