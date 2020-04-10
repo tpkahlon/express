@@ -10,6 +10,6 @@
 
 ## ExpressJS
 
-| Project Title  | Project Link   |
-| -------------- | -------------- |
-| Coming Soon... | Coming Soon... |
+| Project Title | Project Link                |
+| ------------- | --------------------------- |
+| Test App      | Basic express configuration |
