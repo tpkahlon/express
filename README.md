@@ -10,6 +10,7 @@
 
 ## ExpressJS
 
-| Project Title | Project Link                |
-| ------------- | --------------------------- |
-| Test App      | Basic express configuration |
+| Project Title | Project Link                                                                               |
+| ------------- | ------------------------------------------------------------------------------------------ |
+| Basics        | Express API concepts                                                                       |
+| Fake Team     | Fake Team handles all CRUD operations for REST API. It enables input validation using Joi. |
