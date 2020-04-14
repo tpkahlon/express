@@ -1,0 +1,37 @@
+<div class="row">
+  <div class="col col-12">
+    <h1 class="m-0">{{title}}</h1>
+  </div>
+</div>
+<div class="row">
+  <div class="col col-12">
+    <div class="my-3">
+      <a href="/api/players" class="btn btn-primary">Check API</a>
+    </div>
+  </div>
+</div>
+<div class="row">
+  <div class="col col-12">
+    <h2 class="m-0">Add Player</h2>
+    <form class="form mt-1 mb-3" action="/api/players" method="POST">
+      <input class="form-control mb-2" type="text" name="name" placeholder="Enter Name of Player" required />
+      <input class="form-control mb-2" type="date" name="date_of_birth" required />
+      <input class="form-control mb-2" type="text" name="skill" placeholder="Enter Skill of Player" required />
+      <button class="btn btn-primary" type="submit">Save</button>
+    </form>
+  </div>
+</div>
+<div class="row">
+  <div class="col col-12">
+    <ul class="list-group">
+      {{#each data}}
+      <li class="list-group-item">
+        <p>{{this.id}}</p>
+        <p>{{this.name}}</p>
+        <p>{{this.skill}}</p>
+        <p>{{this.date_of_birth}}<p>
+      </li>
+      {{/each}}
+    </ul>
+  </div>
+</div>
