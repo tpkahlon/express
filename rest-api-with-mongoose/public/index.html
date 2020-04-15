@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Welcome!</title>
+  </head>
+  <body>
+    <h1>REST API with Mongoose!</h1>
+    <p>
+      Lorem, ipsum dolor sit amet consectetur adipisicing elit. Facilis, quod.
+      Eaque distinctio expedita exercitationem enim, officiis autem fuga nobis
+      fugit quo ab deserunt fugiat porro aliquid esse et ullam quisquam.
+    </p>
+    <ul>
+      <li><a href="/api/users">See all users</a></li>
+    </ul>
+    <form action="/api/users" method="POST">
+      <input type="text" name="name" placeholder="Enter name" required />
+      <input type="number" name="age" placeholder="Enter age" required />
+      <input type="email" name="email" placeholder="Enter email" required />
+      <input type="date" name="createdAt" required />
+      <button type="submit">Add User</button>
+    </form>
+  </body>
+</html>
