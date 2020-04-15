@@ -33,34 +33,32 @@ const Comment = ({ id, setIdeaInfo }) => {
     sendComment();
   };
   return (
-    <>
-      <div>
-        <h3>Add a comment</h3>
-        <form onSubmit={handleSubmit}>
-          <label htmlFor="username">
-            <input
-              value={data.username}
-              onChange={handleChange}
-              name="username"
-              type="text"
-              placeholder="Enter Username"
-              required
-            />
-          </label>
-          <label htmlFor="message">
-            <textarea
-              value={data.message}
-              onChange={handleChange}
-              name="message"
-              type="text"
-              placeholder="Enter message"
-              required
-            />
-          </label>
-          <button type="submit">Add a comment</button>
-        </form>
-      </div>
-    </>
+    <div>
+      <h3>Add a comment</h3>
+      <form onSubmit={handleSubmit}>
+        <label htmlFor="username">
+          <input
+            value={data.username}
+            onChange={handleChange}
+            name="username"
+            type="text"
+            placeholder="Enter Username"
+            required
+          />
+        </label>
+        <label htmlFor="message">
+          <textarea
+            value={data.message}
+            onChange={handleChange}
+            name="message"
+            type="text"
+            placeholder="Enter message"
+            required
+          />
+        </label>
+        <button type="submit">Add a comment</button>
+      </form>
+    </div>
   );
 };
 

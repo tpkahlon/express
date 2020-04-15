@@ -9,12 +9,10 @@ const Like = ({ id, likes, setIdeaInfo }) => {
     setIdeaInfo(json);
   };
   return (
-    <>
-      <div>
-        <button onClick={handleClick}>Like</button>
-        <p>This idea has been liked {likes} times.</p>
-      </div>
-    </>
+    <div>
+      <p>This idea has been liked {likes} times.</p>
+      <button onClick={handleClick}>Like</button>
+    </div>
   );
 };
 

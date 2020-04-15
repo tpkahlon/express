@@ -7,6 +7,7 @@ import Ideas from "./pages/Ideas";
 import Idea from "./pages/Idea";
 import Menu from "./pages/Menu";
 import NotFound from "./pages/NotFound";
+import "./App.css";
 
 const App = () => {
   return (

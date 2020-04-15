@@ -16,11 +16,16 @@ const Ideas = () => {
     }
     // eslint-disable-next-line
   }, []);
-  if (!ideas || ideas.length === 0) return <p>Loading...</p>;
+  if (!ideas) return <p>Loading...</p>;
+  if (ideas.length === 0) return <p>No ideas found!</p>;
   return (
-    <>
-      <Listing list={ideas} />
-    </>
+    <div className="container">
+      <div className="row">
+        <div className="column">
+          <Listing list={ideas} />
+        </div>
+      </div>
+    </div>
   );
 };
 

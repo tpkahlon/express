@@ -6,6 +6,7 @@
 - Server based on Express
 - Add likes on an idea
 - Add comments on an idea
+- Minimum CSS clutter, thanks to `Milligram`
 
 ## How to run this application
 
@@ -19,5 +20,5 @@
 use ideas;
 
 // Populate the collection
-db.idea.insert({ name: "A", likes: 0, comments: [] }, { name: "B", likes: 1, comments: [ { username: "Joe", message: "Testing" } ] })
+db.idea.insert([{ name: "A", likes: 0, comments: [] }, { name: "B", likes: 1, comments: [ { username: "Joe", message: "Testing" } ] }])
 ```

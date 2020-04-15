@@ -27,18 +27,23 @@ const Idea = ({ match }) => {
   }, [id]);
   const currentIdea = ideas.find((i) => i._id === id);
   const otherIdeas = ideas.filter((i) => i._id !== id);
-  if (!ideas || ideas.length === 0 || !ideaInfo) return <NotFound />;
+  if (!ideas || ideas.length === 0 || !currentIdea) return <NotFound />;
   return (
-    <>
-      <h1>{currentIdea.name}</h1>
-      <Like id={id} likes={ideaInfo.likes} setIdeaInfo={setIdeaInfo} />
-      <h2>Comment</h2>
-      <Comments comments={ideaInfo.comments} />
-      <Comment id={id} setIdeaInfo={setIdeaInfo} />
-      <hr />
-      <h2>Other Ideas</h2>
-      <Listing list={otherIdeas} />
-    </>
+    <div className="container">
+      <div className="row">
+        <div className="column">
+          <h1>{currentIdea.name}</h1>
+          <Like id={id} likes={ideaInfo.likes} setIdeaInfo={setIdeaInfo} />
+          <hr />
+          <h2>Comment</h2>
+          <Comments comments={ideaInfo.comments} />
+          <Comment id={id} setIdeaInfo={setIdeaInfo} />
+          <hr />
+          <h2>Other Ideas</h2>
+          <Listing list={otherIdeas} />
+        </div>
+      </div>
+    </div>
   );
 };
 
