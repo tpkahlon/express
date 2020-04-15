@@ -1,11 +1,14 @@
 import express from "express";
 import { MongoClient, ObjectId } from "mongodb";
+import path from "path";
 
 const app = express();
 const PORT = process.env.PORT || 3001;
 
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
+
+app.use(express.static(path.join(__dirname, "/build")));
 
 const withDB = async (operations, res) => {
   try {
@@ -64,6 +67,10 @@ app.post(`/api/ideas/:id/comments`, (req, res) => {
     const updatedIdea = await collection.findOne(ObjectId(id));
     res.status(200).json(updatedIdea);
   }, res);
+});
+
+app.get(`*`, (req, res) => {
+  res.sendFile(path.join(__dirname, `/build`, `/index.html`));
 });
 
 app.listen(PORT, console.log(`Listening on port ${PORT}`));

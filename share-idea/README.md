@@ -11,9 +11,9 @@
 ## How to run this application
 
 - Use `npm run dev` in `server` folder to run Express
-- Use `npm run start` in `client` folder to run Client
 - Make sure `MongoDB` is running on your device. Create a document named `ideas` in your local MongoDB daemon. Inside that document, create a collection named `idea` to make sure application server/client sync in properly. Use `Robo 3T` for better visualization of database
 - For testing purposes, you can add a sample data in collection `idea` as follows:
+- If you would like to make any changes in React application, use `npm run build` to build the revised application in `client` folder and replace the existing `build` folder in `server` directory with newer one
 
 ```javascript
 // Use the database
