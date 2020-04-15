@@ -1,17 +1,40 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import Listing from "../components/Listing";
+import Comments from "../components/Comments";
+import Comment from "../components/Comment";
+import Like from "../components/Like";
 import NotFound from "../pages/NotFound";
-import data from "../data/data";
 
 const Idea = ({ match }) => {
   const { id } = match.params;
-  console.log(id);
-  const idea = data.find((i) => i.id === parseInt(id));
-  const otherIdeas = data.filter((i) => i.id !== parseInt(id));
-  if (!idea) return <NotFound />;
+  const [ideas, setIdeas] = useState([]);
+  const [ideaInfo, setIdeaInfo] = useState({});
+  useEffect(() => {
+    try {
+      const getData = async () => {
+        const [getIdeas, getIdea] = await Promise.all([
+          fetch(`/api/ideas`).then((d) => d.json()),
+          fetch(`/api/ideas/${id}`).then((d) => d.json()),
+        ]);
+        setIdeas(getIdeas);
+        setIdeaInfo(getIdea);
+      };
+      getData();
+    } catch (err) {
+      console.log(err);
+    }
+    // eslint-disable-next-line
+  }, [id]);
+  const currentIdea = ideas.find((i) => i._id === id);
+  const otherIdeas = ideas.filter((i) => i._id !== id);
+  if (!ideas || ideas.length === 0 || !ideaInfo) return <NotFound />;
   return (
     <>
-      <h1>{idea.name}</h1>
+      <h1>{currentIdea.name}</h1>
+      <Like id={id} likes={ideaInfo.likes} setIdeaInfo={setIdeaInfo} />
+      <h2>Comment</h2>
+      <Comments comments={ideaInfo.comments} />
+      <Comment id={id} setIdeaInfo={setIdeaInfo} />
       <hr />
       <h2>Other Ideas</h2>
       <Listing list={otherIdeas} />

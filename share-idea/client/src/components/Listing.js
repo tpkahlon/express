@@ -6,7 +6,7 @@ const Listing = ({ list }) => {
     <>
       {list.map((idea, index) => (
         <div key={index}>
-          <Link to={`/ideas/${idea.id}`}>
+          <Link to={`/ideas/${idea._id}`}>
             <h3>{idea.name}</h3>
           </Link>
         </div>
