@@ -1,4 +1,5 @@
 import "whatwg-fetch";
+import "./App.css";
 import React from "react";
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import Home from "./pages/Home";
@@ -7,7 +8,6 @@ import Ideas from "./pages/Ideas";
 import Idea from "./pages/Idea";
 import Menu from "./pages/Menu";
 import NotFound from "./pages/NotFound";
-import "./App.css";
 
 const App = () => {
   return (

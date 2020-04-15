@@ -3,7 +3,7 @@ import Listing from "../components/Listing";
 import Comments from "../components/Comments";
 import Comment from "../components/Comment";
 import Like from "../components/Like";
-import NotFound from "../pages/NotFound";
+import NotFound from "./NotFound";
 
 const Idea = ({ match }) => {
   const { id } = match.params;

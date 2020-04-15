@@ -1,5 +1,7 @@
 import React, { useState, useEffect } from "react";
 import Listing from "../components/Listing";
+import Loading from "./Loading";
+import NotFound from "./NotFound";
 
 const Ideas = () => {
   const [ideas, setIdeas] = useState([]);
@@ -16,8 +18,8 @@ const Ideas = () => {
     }
     // eslint-disable-next-line
   }, []);
-  if (!ideas) return <p>Loading...</p>;
-  if (ideas.length === 0) return <p>No ideas found!</p>;
+  if (!ideas) return <Loading />;
+  if (ideas.length === 0) return <NotFound />;
   return (
     <div className="container">
       <div className="row">
