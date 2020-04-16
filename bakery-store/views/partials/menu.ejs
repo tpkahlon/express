@@ -7,10 +7,18 @@
       <a href="/menu">Menu</a>
     </div>
     <div class="column">
-      <a href="/cooks">Cooks</a>
+      <a href="/speakers">Speakers</a>
     </div>
     <div class="column">
       <a href="/feedback">Feedback</a>
     </div>
+  </div>
+  <hr />
+  <div class="row">
+    <% speakerNames.forEach(function(speaker) { %>
+    <div class="column">
+      <a href="/speakers/<%= speaker.shortname %>"><%= speaker.name %></a>
+    </div>
+    <% }) %>
   </div>
 </div>

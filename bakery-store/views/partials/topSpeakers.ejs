@@ -1,0 +1,17 @@
+<hr />
+<div class="row">
+  <div class="column">
+    <% topSpeakers.forEach(function(speaker) { %>
+    <div>
+      <div><%= speaker.title %></div>
+      <div><%= speaker.name %></div>
+      <div>
+        <a href="/speakers/<%= speaker.shortname %>">
+          See Profile
+        </a>
+      </div>
+      <hr />
+    </div>
+    <% }) %>
+  </div>
+</div>

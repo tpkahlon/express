@@ -1,0 +1,17 @@
+<hr />
+<div class="container">
+  <div class="row">
+    <div class="column">
+      <% speakers.forEach(function(speaker) { %>
+      <div><%= speaker.title %></div>
+      <div>
+        <a href="/speakers/<%= speaker.shortname %>"><%= speaker.name %></a>
+      </div>
+      <div><%= speaker.summary %></div>
+      <hr />
+      <% }) %>
+    </div>
+  </div>
+</div>
+
+<%- include(`../partials/gallery.ejs`) %>

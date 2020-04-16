@@ -1,19 +1,24 @@
 const express = require("express");
 
-const cooksRoute = require("./cooks");
+const speakersRoute = require("./speakers");
 const feedbackRoute = require("./feedback");
 const menuRoute = require("./menu");
 
 const router = express.Router();
 
 module.exports = (params) => {
-  router.get(`/`, (req, res) =>
+  const { speakerService } = params;
+  router.get(`/`, async (req, res) => {
+    const artwork = await speakerService.getAllArtwork();
+    const topSpeakers = await speakerService.getList();
     res.render(`layout`, {
       pageTitle: `Welcome`,
       template: `index`,
-    })
-  );
-  router.use(`/cooks`, cooksRoute(params));
+      topSpeakers,
+      artwork,
+    });
+  });
+  router.use(`/speakers`, speakersRoute(params));
   router.use(`/feedback`, feedbackRoute(params));
   router.use(`/menu`, menuRoute());
   return router;
