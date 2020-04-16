@@ -2,7 +2,7 @@
 
 ## Demo
 
-- [View Demo](https://tinyurl.com/sd15042020)
+- [View Demo](http://shorturl.at/rsyG5)
 
 The demo instance will be active until April 14, 2020 because of AWS EC2 free-tier limitations.
 
