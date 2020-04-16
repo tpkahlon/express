@@ -40,6 +40,16 @@ app.get(`/api/ideas/:id`, async (req, res) => {
   }, res);
 });
 
+app.post(`/api/ideas`, async (req, res) => {
+  const { name } = req.body;
+  console.log(name);
+  withDB(async (db, collection) => {
+    const result = await collection.insertOne({ name, likes: 0, comments: [] });
+    res.status(200).json(result);
+    client.close();
+  }, res);
+});
+
 app.post(`/api/ideas/:id/likes`, async (req, res) => {
   const { id } = req.params;
   withDB(async (db, collection) => {
