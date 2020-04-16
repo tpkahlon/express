@@ -12,7 +12,7 @@ const cooksService = new CooksService(`./data/cooks.json`);
 app.set(`view engine`, `ejs`);
 app.set(`views`, path.join(__dirname, `./views`));
 app.set(`trust proxy`, 1);
-app.use(express.static(path.join(__dirname, "./public")));
+app.locals.siteName = `Devinder Bakery Shop`;
 app.use(`/`, routes({ feedbackService, cooksService }));
 app.use(
   cookieSession({

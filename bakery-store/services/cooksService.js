@@ -1,49 +1,120 @@
 const fs = require("fs");
 const util = require("util");
 
+/**
+ * We want to use async/await with fs.readFile - util.promisfy gives us that
+ */
 const readFile = util.promisify(fs.readFile);
-const writeFile = util.promisify(fs.writeFile);
 
 /**
- * Logic for reading and writing feedback data
+ * Logic for fetching speakers information
  */
-class FeedbackService {
+class SpeakerService {
   /**
    * Constructor
-   * @param {*} datafile Path to a JSOn file that contains the feedback data
+   * @param {*} datafile Path to a JSOn file that contains the speakers data
    */
   constructor(datafile) {
     this.datafile = datafile;
   }
 
   /**
-   * Get all feedback items
+   * Returns a list of speakers name and short name
+   */
+  async getNames() {
+    const data = await this.getData();
+
+    // We are using map() to transform the array we get into another one
+    return data.map((speaker) => {
+      return { name: speaker.name, shortname: speaker.shortname };
+    });
+  }
+
+  /**
+   * Get all artwork
+   */
+  async getAllArtwork() {
+    const data = await this.getData();
+
+    // Array.reduce() is used to traverse all speakers and
+    // create an array that contains all artwork
+    const artwork = data.reduce((acc, elm) => {
+      if (elm.artwork) {
+        // eslint-disable-next-line no-param-reassign
+        acc = [...acc, ...elm.artwork];
+      }
+      return acc;
+    }, []);
+    return artwork;
+  }
+
+  /**
+   * Get all artwork of a given speaker
+   * @param {*} shortname The speakers short name
+   */
+  async getArtworkForSpeaker(shortname) {
+    const data = await this.getData();
+    const speaker = data.find((elm) => {
+      return elm.shortname === shortname;
+    });
+    if (!speaker || !speaker.artwork) return null;
+    return speaker.artwork;
+  }
+
+  /**
+   * Get speaker information provided a shortname
+   * @param {*} shortname
+   */
+  async getSpeaker(shortname) {
+    const data = await this.getData();
+    const speaker = data.find((elm) => {
+      return elm.shortname === shortname;
+    });
+    if (!speaker) return null;
+    return {
+      title: speaker.title,
+      name: speaker.name,
+      shortname: speaker.shortname,
+      description: speaker.description,
+    };
+  }
+
+  /**
+   * Returns a list of speakers with only the basic information
+   */
+  async getListShort() {
+    const data = await this.getData();
+    return data.map((speaker) => {
+      return {
+        name: speaker.name,
+        shortname: speaker.shortname,
+        title: speaker.title,
+      };
+    });
+  }
+
+  /**
+   * Get a list of speakers
    */
   async getList() {
     const data = await this.getData();
-    return data;
+    return data.map((speaker) => {
+      return {
+        name: speaker.name,
+        shortname: speaker.shortname,
+        title: speaker.title,
+        summary: speaker.summary,
+      };
+    });
   }
 
   /**
-   * Add a new feedback item
-   * @param {*} name The name of the user
-   * @param {*} title The title of the feedback message
-   * @param {*} message The feedback message
-   */
-  async addEntry(name, email, title, message) {
-    const data = (await this.getData()) || [];
-    data.unshift({ name, email, title, message });
-    return writeFile(this.datafile, JSON.stringify(data));
-  }
-
-  /**
-   * Fetches feedback data from the JSON file provided to the constructor
+   * Fetches speakers data from the JSON file provided to the constructor
    */
   async getData() {
     const data = await readFile(this.datafile, "utf8");
-    if (!data) return [];
-    return JSON.parse(data);
+    return JSON.parse(data).speakers;
   }
 }
 
-module.exports = FeedbackService;
+module.exports = SpeakerService;
