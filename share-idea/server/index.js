@@ -42,11 +42,14 @@ app.get(`/api/ideas/:id`, async (req, res) => {
 
 app.post(`/api/ideas`, async (req, res) => {
   const { name } = req.body;
-  console.log(name);
   withDB(async (db, collection) => {
-    const result = await collection.insertOne({ name, likes: 0, comments: [] });
+    await collection.insertOne({
+      name,
+      likes: 0,
+      comments: [],
+    });
+    const result = await collection.find().toArray();
     res.status(200).json(result);
-    client.close();
   }, res);
 });
 

@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 
 const Home = () => {
-  const initialIdeaState = { name: "", addedMessage: "" };
+  const initialIdeaState = { name: "" };
   const [data, setData] = useState(initialIdeaState);
   const handleChange = (e) => {
     const { name, value } = e.target;
@@ -25,9 +25,13 @@ const Home = () => {
           "Content-Type": "application/json",
         },
       });
-      const result = await req.json();
-      setData({ ...data, addedMessage: result.name });
-      alert(`Your idea "${data.name}" has been added successfully!`);
+      const result = await req.status;
+      if (result === 200) {
+        setData(initialIdeaState);
+        alert(`Your idea "${data.name}" has been added successfully!`);
+      } else {
+        alert(`Something went wrong, please try later.`);
+      }
     };
     sendIdea();
   };
