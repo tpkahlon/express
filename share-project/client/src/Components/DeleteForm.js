@@ -4,7 +4,7 @@ import axios from "axios";
 const DeleteForm = ({ data, setData }) => {
   const handleClick = (e) => {
     e.preventDefault();
-    const URL = `http://localhost:3001/projects/${data.currentProject._id}`;
+    const URL = `/projects/${data.currentProject._id}`;
     axios
       .delete(URL, {
         _id: data.currentProject._id,

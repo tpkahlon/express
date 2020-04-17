@@ -12,7 +12,7 @@ const UpdateForm = ({ data, setData }) => {
   };
   const handleSubmit = (e) => {
     e.preventDefault();
-    const URL = `http://localhost:3001/projects`;
+    const URL = `/projects/${data.currentProject._id}`;
     const { name, url, description } = e.target.elements;
     if (
       name.value.trim() === "" ||
@@ -25,7 +25,7 @@ const UpdateForm = ({ data, setData }) => {
       return;
     }
     axios
-      .post(URL, {
+      .put(URL, {
         name: data.currentProject.name,
         url: data.currentProject.url,
         description: data.currentProject.description,

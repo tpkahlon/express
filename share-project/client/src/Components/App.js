@@ -13,7 +13,7 @@ const App = () => {
     setData({ ...data, currentProject: item });
   };
   useEffect(() => {
-    const URL = `http://localhost:3001/projects`;
+    const URL = `/projects`;
     axios
       .get(URL)
       .then((res) =>

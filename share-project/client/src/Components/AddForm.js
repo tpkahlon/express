@@ -10,7 +10,7 @@ const AddForm = ({ data, setData }) => {
   };
   const handleSubmit = (e) => {
     e.preventDefault();
-    const URL = `http://localhost:3001/projects`;
+    const URL = `/projects`;
     const { name, url, description } = e.target.elements;
     if (
       name.value.trim() === "" ||
