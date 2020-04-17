@@ -4,6 +4,8 @@
   "description": "",
   "main": "index.js",
   "scripts": {
+    "compile": "cd ../client && npm run build && cd ../server && mv ../client/build .",
+    "start": "node ./index",
     "dev": "nodemon ./index --exec babel-node -e js"
   },
   "keywords": [],
