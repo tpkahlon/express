@@ -1,13 +1,15 @@
 import express from "express";
 import mongoose from "mongoose";
 import cors from "cors";
+import dotenv from "dotenv";
 import routes from "./routes/routes";
 
+dotenv.config();
 const app = express();
 const PORT = process.env.PORT || 3001;
 
 mongoose.Promise = global.Promise;
-mongoose.connect(`mongodb://localhost/projectDB`, {
+mongoose.connect(process.env.MONGO_URI, {
   useNewUrlParser: true,
   useUnifiedTopology: true,
 });

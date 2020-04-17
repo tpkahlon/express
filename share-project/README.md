@@ -27,4 +27,5 @@ Add, Edit, Delete, View Project links.
 
 - Use `npm run dev` in `server` folder to run server
 - Use `npm run start` in `client` folder to run client
-- Make sure MongoDB database is running on the system
+- Make sure MongoDB database is running on the system locally OR
+- Create a `.env` file in `server` folder and set `MONGO_URI=` to your MongoDB Atlas cluster
