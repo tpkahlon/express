@@ -25,8 +25,8 @@ const App = () => {
     setData({ ...data, updateToggle: !data.updateToggle });
   };
   useEffect(() => {
-    const URL = `http://localhost:3001/projects`;
-    // const URL = `/projects`;
+    // const URL = `http://localhost:3001/projects`;
+    const URL = `/projects`;
     axios
       .get(URL)
       .then((res) =>

@@ -12,8 +12,8 @@ const UpdateForm = ({ data, setData }) => {
   };
   const handleSubmit = (e) => {
     e.preventDefault();
-    const URL = `http://localhost:3001/projects/${data.currentProject._id}`;
-    // const URL = `/projects/${data.currentProject._id}`;
+    // const URL = `http://localhost:3001/projects/${data.currentProject._id}`;
+    const URL = `/projects/${data.currentProject._id}`;
     const { name, url, description } = e.target.elements;
     if (
       name.value.trim() === "" ||
