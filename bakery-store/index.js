@@ -10,18 +10,20 @@ const SpeakerService = require("./services/SpeakerService");
 const feedbackService = new FeedbackService(`./data/feedback.json`);
 const speakerService = new SpeakerService(`./data/speakers.json`);
 
+app.use(express.json());
+app.use(express.urlencoded({ extended: true }));
+app.set(`trust proxy`, 1);
 app.set(`view engine`, `ejs`);
 app.set(`views`, path.join(__dirname, `./views`));
-app.set(`trust proxy`, 1);
 app.locals.siteName = `John Bakery Shop`;
 app.use(express.static(path.join(__dirname, `./public`)));
 app.use(async (req, res, next) => {
   try {
     const names = await speakerService.getNames();
     res.locals.speakerNames = names;
-    next();
+    return next();
   } catch (err) {
-    next(err);
+    return next(err);
   }
 });
 app.use(`/`, routes({ feedbackService, speakerService }));

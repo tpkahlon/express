@@ -1,0 +1,31 @@
+<hr />
+
+<% if(locals.error) { %>
+<div>
+  <% errors.forEach(function(error) { %>
+  <div><%= error.msg %></div>
+  <% }) %>
+</div>
+<% } else if(locals.successMessage) { %>
+<div><%= successMessage %></div>
+<% } %>
+
+<form method="POST" action="/feedback">
+  <input type="text" name="name" placeholder="Enter name" />
+  <input type="email" name="email" placeholder="Enter email" />
+  <input type="text" name="title" placeholder="Enter title" />
+  <textarea type="text" name="message" placeholder="Enter message"></textarea>
+  <button type="submit">Submit</button>
+</form>
+
+<hr />
+
+<% feedback.forEach(function(item) { %>
+<div>
+  <div><%= item.name %></div>
+  <div><%= item.email %></div>
+  <div><%= item.title %></div>
+  <div><%= item.message %></div>
+  <hr />
+</div>
+<% }) %>
