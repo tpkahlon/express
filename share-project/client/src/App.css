@@ -1,0 +1,29 @@
+#root {
+  min-height: 100vh;
+  margin-top: 15px;
+  margin-bottom: 15px;
+}
+
+.hidden {
+  display: none;
+}
+
+form {
+  margin-bottom: 0;
+}
+
+.form-update {
+  margin-top: 15px;
+}
+
+.buttons * {
+  margin-right: 5px;
+}
+
+.card:first-child {
+  margin-top: 30px;
+}
+
+.card {
+  margin-top: 15px;
+}

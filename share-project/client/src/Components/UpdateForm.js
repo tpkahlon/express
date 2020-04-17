@@ -12,7 +12,8 @@ const UpdateForm = ({ data, setData }) => {
   };
   const handleSubmit = (e) => {
     e.preventDefault();
-    const URL = `/projects/${data.currentProject._id}`;
+    const URL = `http://localhost:3001/projects/${data.currentProject._id}`;
+    // const URL = `/projects/${data.currentProject._id}`;
     const { name, url, description } = e.target.elements;
     if (
       name.value.trim() === "" ||
@@ -49,8 +50,10 @@ const UpdateForm = ({ data, setData }) => {
   else {
     return (
       <>
-        <hr />
-        <form onSubmit={handleSubmit}>
+        <form
+          className={`form-update ${data.updateToggle ? "" : "hidden"}`}
+          onSubmit={handleSubmit}
+        >
           <div>
             <label htmlFor="name">Name:</label>
             <input
@@ -84,7 +87,7 @@ const UpdateForm = ({ data, setData }) => {
               required
             />
           </div>
-          <button type="submit">Update Project</button>
+          <button type="submit">Save</button>
         </form>
       </>
     );

@@ -10,7 +10,8 @@ const AddForm = ({ data, setData }) => {
   };
   const handleSubmit = (e) => {
     e.preventDefault();
-    const URL = `/projects`;
+    const URL = `http://localhost:3001/projects`;
+    // const URL = `/projects`;
     const { name, url, description } = e.target.elements;
     if (
       name.value.trim() === "" ||
@@ -47,42 +48,46 @@ const AddForm = ({ data, setData }) => {
   if (condition) {
     return (
       <>
-        <form onSubmit={handleSubmit}>
-          <div>
-            <label htmlFor="name">Name:</label>
-            <input
-              value={fields.name}
-              onChange={handleChange}
-              type="text"
-              name="name"
-              placeholder="Enter Project Name..."
-              required
-            />
+        <div className="row">
+          <div className="column">
+            <form onSubmit={handleSubmit}>
+              <div>
+                <label htmlFor="name">Name:</label>
+                <input
+                  value={fields.name}
+                  onChange={handleChange}
+                  type="text"
+                  name="name"
+                  placeholder="Enter Project Name..."
+                  required
+                />
+              </div>
+              <div>
+                <label htmlFor="url">URL:</label>
+                <input
+                  value={fields.url}
+                  onChange={handleChange}
+                  type="url"
+                  name="url"
+                  placeholder="Enter Project Link..."
+                  required
+                />
+              </div>
+              <div>
+                <label htmlFor="description">Description:</label>
+                <input
+                  value={fields.description}
+                  onChange={handleChange}
+                  type="text"
+                  name="description"
+                  placeholder="Enter Project Description..."
+                  required
+                />
+              </div>
+              <button type="submit">Add</button>
+            </form>
           </div>
-          <div>
-            <label htmlFor="url">URL:</label>
-            <input
-              value={fields.url}
-              onChange={handleChange}
-              type="url"
-              name="url"
-              placeholder="Enter Project Link..."
-              required
-            />
-          </div>
-          <div>
-            <label htmlFor="description">Description:</label>
-            <input
-              value={fields.description}
-              onChange={handleChange}
-              type="text"
-              name="description"
-              placeholder="Enter Project Description..."
-              required
-            />
-          </div>
-          <button type="submit">+ Add Project</button>
-        </form>
+        </div>
       </>
     );
   } else {

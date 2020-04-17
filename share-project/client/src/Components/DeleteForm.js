@@ -4,7 +4,8 @@ import axios from "axios";
 const DeleteForm = ({ data, setData }) => {
   const handleClick = (e) => {
     e.preventDefault();
-    const URL = `/projects/${data.currentProject._id}`;
+    const URL = `http://localhost:3001/projects/${data.currentProject._id}`;
+    // const URL = `/projects/${data.currentProject._id}`;
     axios
       .delete(URL, {
         _id: data.currentProject._id,
@@ -29,12 +30,7 @@ const DeleteForm = ({ data, setData }) => {
   // https://stackoverflow.com/questions/679915/how-do-i-test-for-an-empty-javascript-object
   if (condition) return <></>;
   else {
-    return (
-      <>
-        <hr />
-        <button onClick={handleClick}>- Delete Project</button>
-      </>
-    );
+    return <button onClick={handleClick}>Delete</button>;
   }
 };
 
