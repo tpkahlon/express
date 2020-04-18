@@ -41,9 +41,9 @@ const Stations = ({ data, handleClick }) => {
                 ))}
             </select>
           </div>
-          <div className="cards">
-            {sortedStations.length !== 0 ? (
-              sortedStations.map((i) => {
+          {sortedStations.length !== 0 ? (
+            <div className="cards">
+              {sortedStations.map((i) => {
                 return (
                   <a
                     className="card"
@@ -58,11 +58,13 @@ const Stations = ({ data, handleClick }) => {
                     <div>{i.country}</div>
                   </a>
                 );
-              })
-            ) : (
+              })}
+            </div>
+          ) : (
+            <div>
               <p>No stations found in selected country.</p>
-            )}
-          </div>
+            </div>
+          )}
         </>
       );
     }
