@@ -32,11 +32,11 @@ const Station = ({ data, setData, handleToggle }) => {
                   fileConfig={{ forceAudio: true }}
                 />
               </div>
-              <div className="btn-group">
-                <DeleteForm data={data} setData={setData} />
+              <div className="d-flex justify-content-between">
                 <button className="btn btn-warning" onClick={handleToggle}>
                   Edit
                 </button>
+                <DeleteForm data={data} setData={setData} />
               </div>
             </div>
           </div>
