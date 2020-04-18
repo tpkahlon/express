@@ -11,37 +11,29 @@ const Station = ({ data, setData, handleToggle }) => {
   if (condition) return <></>;
   else {
     return (
-      <div className="row">
-        <div className="col col-12">
-          <div className="card">
-            <div className="card-body">
-              <h5 className="card-title">{data.currentStation.name}</h5>
-              <h6 className="card-subtitle mb-2 text-muted">
-                {moment(data.currentStation.createdOn).format(`LLLL`)}
-              </h6>
-              <h6 className="card-subtitle mb-2 text-muted">
-                {data.currentStation.country}
-              </h6>
-              <p className="card-text">{data.currentStation.description}</p>
-              <div className="mb-3">
-                <ReactPlayer
-                  width="auto"
-                  height="auto"
-                  controls={true}
-                  url={data.currentStation.url}
-                  fileConfig={{ forceAudio: true }}
-                />
-              </div>
-              <div className="d-flex justify-content-between">
-                <button className="btn btn-warning" onClick={handleToggle}>
-                  Edit
-                </button>
-                <DeleteForm data={data} setData={setData} />
-              </div>
-            </div>
+      <>
+        <div>
+          <div className="info">
+            <div>{data.currentStation.name}</div>
+            <div>{moment(data.currentStation.createdOn).format(`LLLL`)}</div>
+            <div>{data.currentStation.country}</div>
           </div>
+          <div>{data.currentStation.description}</div>
         </div>
-      </div>
+        <div>
+          <ReactPlayer
+            width="auto"
+            height="auto"
+            controls={true}
+            url={data.currentStation.url}
+            fileConfig={{ forceAudio: true }}
+          />
+        </div>
+        <div>
+          <button onClick={handleToggle}>Edit</button>
+          <DeleteForm data={data} setData={setData} />
+        </div>
+      </>
     );
   }
 };

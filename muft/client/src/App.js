@@ -7,7 +7,7 @@ import AddForm from "./Components/AddForm";
 import UpdateForm from "./Components/UpdateForm";
 import NotFound from "./Components/NotFound";
 import Footer from "./Components/Footer";
-import "./App.css";
+import "./App.scss";
 
 const App = () => {
   const [data, setData] = useState({
@@ -15,6 +15,7 @@ const App = () => {
     country: [],
     currentStation: {},
     updateToggle: false,
+    addToggle: false,
   });
   const handleClick = (e, item) => {
     e.preventDefault();
@@ -25,6 +26,9 @@ const App = () => {
   };
   const handleToggle = () => {
     setData({ ...data, updateToggle: !data.updateToggle });
+  };
+  const handleAddToggle = () => {
+    setData({ ...data, addToggle: !data.addToggle });
   };
   useEffect(() => {
     let URL1 = `/stations`;
@@ -49,16 +53,27 @@ const App = () => {
       <Router>
         <Switch>
           <Route path="/" exact>
-            <div className="container my-3">
-              <Link
-                to="/"
-                onClick={handleLogoClick}
-                className="text-decoration-none"
-              >
-                <h1 className="text-decoration-none">Muft</h1>
-              </Link>
+            <div className="header">
+              <div>
+                <Link
+                  className="header__title"
+                  to="/"
+                  onClick={handleLogoClick}
+                >
+                  <h1>Muft</h1>
+                </Link>
+                <button
+                  className={
+                    Object.keys(data.currentStation).length === 0
+                      ? ""
+                      : "hidden"
+                  }
+                  onClick={handleAddToggle}
+                >
+                  + Add Station
+                </button>
+              </div>
               <AddForm data={data} setData={setData} />
-              <hr />
               <Station
                 data={data}
                 setData={setData}
@@ -69,7 +84,7 @@ const App = () => {
             </div>
           </Route>
           <Route>
-            <div className="container my-3">
+            <div className="header">
               <Link to="/" className="text-decoration-none">
                 <h1>Muft</h1>
               </Link>

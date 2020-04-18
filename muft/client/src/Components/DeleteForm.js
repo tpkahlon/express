@@ -31,7 +31,7 @@ const DeleteForm = ({ data, setData }) => {
   if (condition) return <></>;
   else {
     return (
-      <button href="#" className="btn btn-danger" onClick={handleClick}>
+      <button href="#" onClick={handleClick}>
         Delete
       </button>
     );

@@ -49,98 +49,66 @@ const UpdateForm = ({ data, setData }) => {
     return (
       <>
         <form
-          className={`my-3 ${data.updateToggle ? "" : "hidden"}`}
+          className={`form form--add ${data.updateToggle ? "" : "hidden"}`}
           onSubmit={handleSubmit}
         >
-          <div className="form-group row">
-            <label
-              htmlFor="name"
-              className="col col-12 col-sm-2 col-form-label col-form-label-sm"
-            >
-              Name:
-            </label>
-            <div className="col col-12 col-sm-10">
-              <input
-                id="name"
-                className="form-control form-control-sm"
-                value={data.currentStation.name}
-                onChange={handleChange}
-                type="text"
-                name="name"
-                placeholder="Enter Station Name..."
-                required
-              />
-            </div>
+          <div>
+            <label htmlFor="name">Name:</label>
+            <input
+              id="name"
+              value={data.currentStation.name}
+              onChange={handleChange}
+              type="text"
+              name="name"
+              placeholder="Enter Station Name..."
+              required
+            />
           </div>
-          <div className="form-group row">
-            <label
-              htmlFor="url"
-              className="col col-12 col-sm-2 col-form-label col-form-label-sm"
-            >
-              URL:
-            </label>
-            <div className="col col-12 col-sm-10">
-              <input
-                id="url"
-                className="form-control form-control-sm"
-                value={data.currentStation.url}
-                onChange={handleChange}
-                type="url"
-                name="url"
-                placeholder="Enter Station Link..."
-                required
-              />
-            </div>
+          <div>
+            <label htmlFor="url">URL:</label>
+            <input
+              id="url"
+              value={data.currentStation.url}
+              onChange={handleChange}
+              type="url"
+              name="url"
+              placeholder="Enter Station Link..."
+              required
+            />
           </div>
-          <div className="form-group row">
-            <label
-              htmlFor="description"
-              className="col col-12 col-sm-2 col-form-label col-form-label-sm"
-            >
-              Description:
-            </label>
-            <div className="col col-12 col-sm-10">
-              <input
-                id="description"
-                className="form-control form-control-sm"
-                value={data.currentStation.description}
-                onChange={handleChange}
-                type="text"
-                name="description"
-                placeholder="Enter Station Description..."
-                required
-              />
-            </div>
+          <div>
+            <label htmlFor="description">Description:</label>
+            <input
+              id="description"
+              value={data.currentStation.description}
+              onChange={handleChange}
+              type="text"
+              name="description"
+              placeholder="Enter Station Description..."
+              required
+            />
           </div>
-          <div className="form-group row">
-            <label
-              htmlFor="country"
-              className="col col-12 col-sm-2 col-form-label col-form-label-sm"
+          <div>
+            <label htmlFor="country">Country:</label>
+            <select
+              id="country"
+              value={data.currentStation.country}
+              onChange={handleChange}
+              type="select"
+              name="country"
+              required
             >
-              Country:
-            </label>
-            <div className="col col-12 col-sm-10">
-              <select
-                id="country"
-                className="custom-select"
-                value={data.currentStation.country}
-                onChange={handleChange}
-                type="select"
-                name="country"
-                required
-              >
-                {data.country &&
-                  data.country.map((i, index) => (
-                    <option key={index} value={i.country}>
-                      {i.country}
-                    </option>
-                  ))}
-              </select>
-            </div>
+              {data.country &&
+                data.country.map((i, index) => (
+                  <option key={index} value={i.country}>
+                    {i.country}
+                  </option>
+                ))}
+            </select>
           </div>
-          <button className="btn btn-primary" type="submit">
-            Save
-          </button>
+          <div>
+            <button type="submit">Save</button>
+          </div>
         </form>
       </>
     );

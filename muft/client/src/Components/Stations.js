@@ -15,13 +15,7 @@ const Stations = ({ data, handleClick }) => {
   // https://stackoverflow.com/questions/679915/how-do-i-test-for-an-empty-javascript-object
   if (condition) {
     if (data.stations.length === 0) {
-      return (
-        <div className="row">
-          <div className="col col-12">
-            <p>No Stations listed.</p>
-          </div>
-        </div>
-      );
+      return <p>No Stations listed.</p>;
     } else {
       const sortedStations = data.stations
         .filter((i) => i.country === filterCountry.country)
@@ -30,55 +24,44 @@ const Stations = ({ data, handleClick }) => {
         });
       return (
         <>
-          <div className="row">
-            <div className="col col-12">
-              <div className="d-flex justify-content-between align-items-center mb-3">
-                <label htmlFor="country">Filter stations:</label>
-                <select
-                  id="country"
-                  className="custom-select w-50"
-                  value={filterCountry.country}
-                  onChange={handleChange}
-                  type="select"
-                  name="country"
-                >
-                  {data.country &&
-                    data.country.map((i, index) => (
-                      <option key={index} value={i.country}>
-                        {i.country}
-                      </option>
-                    ))}
-                </select>
-              </div>
-            </div>
+          <div className="filter">
+            <label htmlFor="country">Filter stations:</label>
+            <select
+              id="country"
+              value={filterCountry.country}
+              onChange={handleChange}
+              type="select"
+              name="country"
+            >
+              {data.country &&
+                data.country.map((i, index) => (
+                  <option key={index} value={i.country}>
+                    {i.country}
+                  </option>
+                ))}
+            </select>
           </div>
-          <div className="row">
-            <div className="col col-12">
-              <div className="list-group">
-                {sortedStations.length !== 0 ? (
-                  sortedStations.map((i) => {
-                    return (
-                      <a
-                        key={i._id}
-                        rel="noopener noreferrer"
-                        target="_blank"
-                        href="/"
-                        onClick={(e) => handleClick(e, i)}
-                        className="list-group-item list-group-item-action flex-column align-items-start"
-                      >
-                        <div className="d-flex w-100 justify-content-between">
-                          <h5 className="mb-1">{i.name}</h5>
-                        </div>
-                        <p>{i.description}</p>
-                        <small className="text-muted">{i.country}</small>
-                      </a>
-                    );
-                  })
-                ) : (
-                  <p>No stations found in selected country.</p>
-                )}
-              </div>
-            </div>
+          <div className="cards">
+            {sortedStations.length !== 0 ? (
+              sortedStations.map((i) => {
+                return (
+                  <a
+                    className="card"
+                    key={i._id}
+                    rel="noopener noreferrer"
+                    target="_blank"
+                    href="/"
+                    onClick={(e) => handleClick(e, i)}
+                  >
+                    <div>{i.name}</div>
+                    <div>{i.description.substring(0, 100) + `...`}</div>
+                    <div>{i.country}</div>
+                  </a>
+                );
+              })
+            ) : (
+              <p>No stations found in selected country.</p>
+            )}
           </div>
         </>
       );

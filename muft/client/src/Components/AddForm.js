@@ -35,6 +35,7 @@ const AddForm = ({ data, setData }) => {
         country: fields.country,
       })
       .then((res) => {
+        alert(`Station has been added!`);
         const newData = res.data;
         const revisedData = data.stations.concat(newData);
         const sortedData = revisedData.sort((a, b) => {
@@ -55,102 +56,69 @@ const AddForm = ({ data, setData }) => {
   if (condition) {
     return (
       <>
-        <hr />
-        <div className="row">
-          <div className="col col-12">
-            <form onSubmit={handleSubmit}>
-              <div className="form-group row">
-                <label
-                  htmlFor="name"
-                  className="col col-12 col-sm-2 col-form-label col-form-label-sm"
-                >
-                  Name:
-                </label>
-                <div className="col col-12 col-sm-10">
-                  <input
-                    id="name"
-                    className="form-control form-control-sm"
-                    value={fields.name}
-                    onChange={handleChange}
-                    type="text"
-                    name="name"
-                    placeholder="Enter Station Name..."
-                    required
-                  />
-                </div>
-              </div>
-              <div className="form-group row">
-                <label
-                  htmlFor="url"
-                  className="col col-12 col-sm-2 col-form-label col-form-label-sm"
-                >
-                  URL:
-                </label>
-                <div className="col col-12 col-sm-10">
-                  <input
-                    id="url"
-                    className="form-control form-control-sm"
-                    value={fields.url}
-                    onChange={handleChange}
-                    type="url"
-                    name="url"
-                    placeholder="Enter Station Link..."
-                    required
-                  />
-                </div>
-              </div>
-              <div className="form-group row">
-                <label
-                  htmlFor="description"
-                  className="col col-12 col-sm-2 col-form-label col-form-label-sm"
-                >
-                  Description:
-                </label>
-                <div className="col col-12 col-sm-10">
-                  <input
-                    id="description"
-                    className="form-control form-control-sm"
-                    value={fields.description}
-                    onChange={handleChange}
-                    type="text"
-                    name="description"
-                    placeholder="Enter Station Description..."
-                    required
-                  />
-                </div>
-              </div>
-              <div className="form-group row">
-                <label
-                  htmlFor="country"
-                  className="col col-12 col-sm-2 col-form-label col-form-label-sm"
-                >
-                  Country:
-                </label>
-                <div className="col col-12 col-sm-10">
-                  <select
-                    id="country"
-                    className="custom-select"
-                    value={fields.country}
-                    onChange={handleChange}
-                    type="select"
-                    name="country"
-                    required
-                  >
-                    {data.country &&
-                      data.country.map((i, index) => (
-                        <option key={index} value={i.country}>
-                          {i.country}
-                        </option>
-                      ))}
-                  </select>
-                </div>
-              </div>
-              <button className="btn btn-primary" type="submit">
-                Add
-              </button>
-            </form>
+        <form
+          className={`form form--add ${data.addToggle ? "" : "hidden"}`}
+          onSubmit={handleSubmit}
+        >
+          <div>
+            <label htmlFor="name">Name:</label>
+            <input
+              id="name"
+              value={fields.name}
+              onChange={handleChange}
+              type="text"
+              name="name"
+              placeholder="Enter Station Name..."
+              required
+            />
           </div>
-        </div>
+          <div>
+            <label htmlFor="url">URL:</label>
+            <input
+              id="url"
+              value={fields.url}
+              onChange={handleChange}
+              type="url"
+              name="url"
+              placeholder="Enter Station Link..."
+              required
+            />
+          </div>
+          <div>
+            <label htmlFor="description">Description:</label>
+            <input
+              id="description"
+              value={fields.description}
+              onChange={handleChange}
+              type="text"
+              name="description"
+              placeholder="Enter Station Description..."
+              required
+            />
+          </div>
+          <div>
+            <label htmlFor="country">Country:</label>
+            <select
+              id="country"
+              className="custom-select"
+              value={fields.country}
+              onChange={handleChange}
+              type="select"
+              name="country"
+              required
+            >
+              {data.country &&
+                data.country.map((i, index) => (
+                  <option key={index} value={i.country}>
+                    {i.country}
+                  </option>
+                ))}
+            </select>
+          </div>
+          <div>
+            <button type="submit">Add</button>
+          </div>
+        </form>
       </>
     );
   } else {
