@@ -12,8 +12,8 @@ const Station = ({ data, setData, handleToggle }) => {
   else {
     return (
       <>
-        <div>
-          <div className="info">
+        <div className="station">
+          <div className="station__info">
             <div>{data.currentStation.name}</div>
             <div>{moment(data.currentStation.createdOn).format(`LLLL`)}</div>
             <div>{data.currentStation.country}</div>
@@ -29,7 +29,7 @@ const Station = ({ data, setData, handleToggle }) => {
             fileConfig={{ forceAudio: true }}
           />
         </div>
-        <div>
+        <div className="buttons">
           <button onClick={handleToggle}>Edit</button>
           <DeleteForm data={data} setData={setData} />
         </div>

@@ -86,7 +86,7 @@ const AddForm = ({ data, setData }) => {
           </div>
           <div>
             <label htmlFor="description">Description:</label>
-            <input
+            <textarea
               id="description"
               value={fields.description}
               onChange={handleChange}
@@ -94,7 +94,7 @@ const AddForm = ({ data, setData }) => {
               name="description"
               placeholder="Enter Station Description..."
               required
-            />
+            ></textarea>
           </div>
           <div>
             <label htmlFor="country">Country:</label>
