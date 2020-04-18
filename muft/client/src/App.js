@@ -27,8 +27,8 @@ const App = () => {
     setData({ ...data, updateToggle: !data.updateToggle });
   };
   useEffect(() => {
-    // let URL1 = `/stations`;
-    const URL1 = `http://localhost:3001/stations`;
+    let URL1 = `/stations`;
+    // const URL1 = `http://localhost:3001/stations`;
     let URL2 = `https://raw.githubusercontent.com/samayo/country-json/master/src/country-by-name.json`;
     axios
       .all([axios.get(URL1), axios.get(URL2)])

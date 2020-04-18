@@ -7,9 +7,9 @@ import {
 } from "../controllers/controllers";
 
 const routes = (app) => {
-  app.route(`/Stations`).get(getStations).post(addStation);
+  app.route(`/stations`).get(getStations).post(addStation);
   app
-    .route(`/Stations/:id`)
+    .route(`/stations/:id`)
     .get(getStation)
     .put(updateStation)
     .delete(deleteStation);

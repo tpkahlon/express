@@ -10,8 +10,8 @@ const app = express();
 const PORT = process.env.PORT || 3001;
 
 mongoose.Promise = global.Promise;
-mongoose.connect(`mongodb://localhost`, {
-  // mongoose.connect(process.env.MONGO_URI, {
+// mongoose.connect(`mongodb://localhost`, {
+mongoose.connect(process.env.MONGO_URI, {
   useNewUrlParser: true,
   useUnifiedTopology: true,
   useFindAndModify: false,
