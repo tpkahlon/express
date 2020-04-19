@@ -19,6 +19,12 @@ export const StationSchema = new Schema({
     type: String,
     required: true,
   },
+  likes: {
+    type: Number,
+  },
+  dislikes: {
+    type: Number,
+  },
   createdOn: {
     type: Date,
     default: Date.now,

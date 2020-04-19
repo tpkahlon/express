@@ -55,7 +55,28 @@ const Stations = ({ data, handleClick }) => {
                   >
                     <div>{i.name}</div>
                     <div>{i.description.substring(0, 100) + `...`}</div>
-                    <div>{i.country}</div>
+                    <div>
+                      <div className="station__actions">
+                        <div className="station__actions-button" name="likes">
+                          <div>{i.likes === undefined ? 0 : i.likes}</div>
+                          <div>
+                            <i class="fa fa-thumbs-up" aria-hidden="true"></i>
+                            <span className="sr-only">Likes</span>
+                          </div>
+                        </div>
+                        <div
+                          className="station__actions-button"
+                          name="dislikes"
+                        >
+                          <div>{i.dislikes === undefined ? 0 : i.dislikes}</div>
+                          <div>
+                            <i class="fa fa-thumbs-down" aria-hidden="true"></i>
+                            <span className="sr-only">Dislikes</span>
+                          </div>
+                        </div>
+                      </div>
+                      <div>{i.country}</div>
+                    </div>
                   </a>
                 );
               })}

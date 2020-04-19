@@ -37,7 +37,7 @@ export const updateStation = (req, res) => {
   Station.findOneAndUpdate(
     { _id: mongoose.Types.ObjectId(id) },
     req.body,
-    { new: true },
+    { new: true, upsert: true },
     (err, Station) => {
       if (err) {
         res.send(err);

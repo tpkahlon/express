@@ -7,6 +7,7 @@ import AddForm from "./Components/AddForm";
 import UpdateForm from "./Components/UpdateForm";
 import NotFound from "./Components/NotFound";
 import Footer from "./Components/Footer";
+import ScrollToTop from "./Components/ScrollToTop";
 import "./App.scss";
 
 const App = () => {
@@ -51,47 +52,49 @@ const App = () => {
   return (
     <>
       <Router>
-        <Switch>
-          <Route path="/" exact>
-            <div className="header">
-              <div>
-                <Link
-                  className="header__title"
-                  to="/"
-                  onClick={handleLogoClick}
-                >
+        <ScrollToTop>
+          <Switch>
+            <Route path="/" exact>
+              <div className="header">
+                <div>
+                  <Link
+                    className="header__title"
+                    to="/"
+                    onClick={handleLogoClick}
+                  >
+                    <h1>Muft</h1>
+                  </Link>
+                  <button
+                    className={
+                      Object.keys(data.currentStation).length === 0
+                        ? ""
+                        : "hidden"
+                    }
+                    onClick={handleAddToggle}
+                  >
+                    + Add Station
+                  </button>
+                </div>
+                <AddForm data={data} setData={setData} />
+                <Station
+                  data={data}
+                  setData={setData}
+                  handleToggle={handleToggle}
+                />
+                <UpdateForm data={data} setData={setData} />
+                <Stations data={data} handleClick={handleClick} />
+              </div>
+            </Route>
+            <Route>
+              <div className="header">
+                <Link to="/" className="text-decoration-none">
                   <h1>Muft</h1>
                 </Link>
-                <button
-                  className={
-                    Object.keys(data.currentStation).length === 0
-                      ? ""
-                      : "hidden"
-                  }
-                  onClick={handleAddToggle}
-                >
-                  + Add Station
-                </button>
+                <NotFound />
               </div>
-              <AddForm data={data} setData={setData} />
-              <Station
-                data={data}
-                setData={setData}
-                handleToggle={handleToggle}
-              />
-              <UpdateForm data={data} setData={setData} />
-              <Stations data={data} handleClick={handleClick} />
-            </div>
-          </Route>
-          <Route>
-            <div className="header">
-              <Link to="/" className="text-decoration-none">
-                <h1>Muft</h1>
-              </Link>
-              <NotFound />
-            </div>
-          </Route>
-        </Switch>
+            </Route>
+          </Switch>
+        </ScrollToTop>
       </Router>
       <Footer />
     </>
