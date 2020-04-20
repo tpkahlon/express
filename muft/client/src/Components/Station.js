@@ -111,10 +111,14 @@ const Station = ({ data, setData, handleToggle }) => {
               </div>
             </div>
           </div>
-        </div>
-        <div className="buttons">
-          <button onClick={handleToggle}>Edit</button>
-          <DeleteForm data={data} setData={setData} />
+          <div className="buttons">
+            <div>
+              <button onClick={handleToggle}>Edit</button>
+            </div>
+            <div>
+              <DeleteForm data={data} setData={setData} />
+            </div>
+          </div>
         </div>
       </>
     );
