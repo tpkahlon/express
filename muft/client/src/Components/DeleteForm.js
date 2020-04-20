@@ -3,26 +3,37 @@ import axios from "axios";
 
 const DeleteForm = ({ data, setData }) => {
   const handleClick = (e) => {
+    const passKey = prompt(
+      `Please enter the pass key. Whatsapp at 4164092721 to become a moderator!`
+    );
+    if (passKey && passKey.trim() !== "") {
+      // const URL = `http://localhost:3001/stations/${data.currentStation._id}`;
+      const URL = `/stations/${data.currentStation._id}/${passKey}`;
+      axios
+        .delete(URL, {
+          _id: data.currentStation._id,
+        })
+        .then((res) => {
+          if (res.data.error) {
+            alert(`The pass key did not work. Please try again.`);
+            return;
+          }
+          if (res.status === 200 && res.data.message) {
+            const remainingStations = data.stations.filter(
+              (i) => i._id !== data.currentStation._id
+            );
+            setData({
+              ...data,
+              currentStation: {},
+              stations: remainingStations,
+            });
+          }
+        })
+        .catch((err) => console.log(err));
+    } else {
+      return;
+    }
     e.preventDefault();
-    // const URL = `http://localhost:3001/stations/${data.currentStation._id}`;
-    const URL = `/stations/${data.currentStation._id}`;
-    axios
-      .delete(URL, {
-        _id: data.currentStation._id,
-      })
-      .then((res) => {
-        if (res.status === 200) {
-          const remainingStations = data.stations.filter(
-            (i) => i._id !== data.currentStation._id
-          );
-          setData({
-            ...data,
-            currentStation: {},
-            stations: remainingStations,
-          });
-        }
-      })
-      .catch((err) => console.log(err));
   };
   const condition =
     Object.keys(data.currentStation).length === 0 &&

@@ -12,36 +12,49 @@ const UpdateForm = ({ data, setData }) => {
   };
   const handleSubmit = (e) => {
     e.preventDefault();
-    // const URL = `http://localhost:3001/stations/${data.currentStation._id}`;
-    const URL = `/stations/${data.currentStation._id}`;
-    const { name, url, description, country } = e.target.elements;
-    if (
-      name.value.trim() === "" ||
-      url.value.trim() === "" ||
-      description.value.trim() === "" ||
-      country.value.trim() === ""
-    ) {
-      alert(
-        `Please enter a name, url, country and a description to update the station.`
-      );
+    const passKey = prompt(
+      `Please enter the pass key. Whatsapp at 4164092721 to become a moderator!`
+    );
+    if (passKey && passKey.trim() !== "") {
+      // const URL = `http://localhost:3001/stations/${data.currentStation._id}`;
+      const URL = `/stations/${data.currentStation._id}/${passKey}`;
+      const { name, url, description, country } = e.target.elements;
+      if (
+        name.value.trim() === "" ||
+        url.value.trim() === "" ||
+        description.value.trim() === "" ||
+        country.value.trim() === ""
+      ) {
+        alert(
+          `Please enter a name, url, country and a description to update the station.`
+        );
+        return;
+      }
+      axios
+        .put(URL, {
+          name: data.currentStation.name,
+          url: data.currentStation.url,
+          description: data.currentStation.description,
+          country: data.currentStation.country,
+        })
+        .then((res) => {
+          if (res.data.error) {
+            alert(`The pass key did not work. Please try again.`);
+            return;
+          }
+          const newData = res.data;
+          const newDataIndex = data.stations.findIndex(
+            (i) => i._id === newData._id
+          );
+          data.stations.splice(newDataIndex, 1, newData);
+          alert(`Station has been updated!`);
+        })
+        .catch((err) => {
+          console.log(err);
+        });
+    } else {
       return;
     }
-    axios
-      .put(URL, {
-        name: data.currentStation.name,
-        url: data.currentStation.url,
-        description: data.currentStation.description,
-        country: data.currentStation.country,
-      })
-      .then((res) => {
-        const newData = res.data;
-        const newDataIndex = data.stations.findIndex(
-          (i) => i._id === newData._id
-        );
-        data.stations.splice(newDataIndex, 1, newData);
-        alert(`Station has been updated!`);
-      })
-      .catch((err) => console.log(err));
   };
   // https://stackoverflow.com/questions/679915/how-do-i-test-for-an-empty-javascript-object
   if (condition) return <></>;

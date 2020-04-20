@@ -2,7 +2,7 @@ import React from "react";
 import moment from "moment";
 import axios from "axios";
 import ReactPlayer from "react-player";
-//import DeleteForm from "./DeleteForm";
+import DeleteForm from "./DeleteForm";
 
 const Station = ({ data, setData, handleToggle }) => {
   const handleLikes = () => {
@@ -112,10 +112,10 @@ const Station = ({ data, setData, handleToggle }) => {
             </div>
           </div>
         </div>
-        {/* <div className="buttons">
+        <div className="buttons">
           <button onClick={handleToggle}>Edit</button>
           <DeleteForm data={data} setData={setData} />
-        </div> */}
+        </div>
       </>
     );
   }
