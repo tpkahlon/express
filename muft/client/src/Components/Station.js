@@ -1,8 +1,8 @@
-import React, { useState } from "react";
+import React from "react";
 import moment from "moment";
 import axios from "axios";
 import ReactPlayer from "react-player";
-import DeleteForm from "./DeleteForm";
+//import DeleteForm from "./DeleteForm";
 
 const Station = ({ data, setData, handleToggle }) => {
   const handleLikes = () => {
@@ -91,7 +91,7 @@ const Station = ({ data, setData, handleToggle }) => {
                   : data.currentStation.likes}
               </div>
               <div>
-                <i class="fa fa-thumbs-up" aria-hidden="true"></i>
+                <i className="fa fa-thumbs-up" aria-hidden="true"></i>
                 <span className="sr-only">Likes</span>
               </div>
             </div>
@@ -106,16 +106,16 @@ const Station = ({ data, setData, handleToggle }) => {
                   : data.currentStation.dislikes}
               </div>
               <div>
-                <i class="fa fa-thumbs-down" aria-hidden="true"></i>
+                <i className="fa fa-thumbs-down" aria-hidden="true"></i>
                 <span className="sr-only">Dislikes</span>
               </div>
             </div>
           </div>
         </div>
-        <div className="buttons">
+        {/* <div className="buttons">
           <button onClick={handleToggle}>Edit</button>
           <DeleteForm data={data} setData={setData} />
-        </div>
+        </div> */}
       </>
     );
   }

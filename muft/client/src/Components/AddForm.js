@@ -35,7 +35,9 @@ const AddForm = ({ data, setData }) => {
         country: fields.country,
       })
       .then((res) => {
-        alert(`Station has been added!`);
+        alert(
+          `Station has been added! Moderator may remove it if the link does not work in future.`
+        );
         const newData = res.data;
         const revisedData = data.stations.concat(newData);
         const sortedData = revisedData.sort((a, b) => {

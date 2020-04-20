@@ -60,7 +60,10 @@ const Stations = ({ data, handleClick }) => {
                         <div className="station__actions-button" name="likes">
                           <div>{i.likes === undefined ? 0 : i.likes}</div>
                           <div>
-                            <i class="fa fa-thumbs-up" aria-hidden="true"></i>
+                            <i
+                              className="fa fa-thumbs-up"
+                              aria-hidden="true"
+                            ></i>
                             <span className="sr-only">Likes</span>
                           </div>
                         </div>
@@ -70,7 +73,10 @@ const Stations = ({ data, handleClick }) => {
                         >
                           <div>{i.dislikes === undefined ? 0 : i.dislikes}</div>
                           <div>
-                            <i class="fa fa-thumbs-down" aria-hidden="true"></i>
+                            <i
+                              className="fa fa-thumbs-down"
+                              aria-hidden="true"
+                            ></i>
                             <span className="sr-only">Dislikes</span>
                           </div>
                         </div>
