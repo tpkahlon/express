@@ -33,6 +33,31 @@ export const getStation = (req, res) => {
 };
 
 export const updateStation = (req, res) => {
+  let { id } = req.params;
+  Station.findOneAndUpdate(
+    { _id: mongoose.Types.ObjectId(id) },
+    req.body,
+    { new: true, upsert: true },
+    (err, Station) => {
+      if (err) {
+        res.send(err);
+      }
+      res.json(Station);
+    }
+  );
+};
+
+export const deleteStation = (req, res) => {
+  let { id } = req.params;
+  Station.deleteOne({ _id: mongoose.Types.ObjectId(id) }, (err, Station) => {
+    if (err) {
+      res.send(err);
+    }
+    res.json({ message: `Station deleted!` });
+  });
+};
+
+export const updateStationWithKey = (req, res) => {
   let { id, passKey } = req.params;
   if (passKey === process.env.PASS_KEY) {
     Station.findOneAndUpdate(
@@ -51,7 +76,7 @@ export const updateStation = (req, res) => {
   }
 };
 
-export const deleteStation = (req, res) => {
+export const deleteStationWithKey = (req, res) => {
   let { id, passKey } = req.params;
   if (passKey === process.env.PASS_KEY) {
     Station.deleteOne({ _id: mongoose.Types.ObjectId(id) }, (err, Station) => {
