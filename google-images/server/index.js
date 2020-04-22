@@ -1,17 +1,15 @@
 import express from "express";
 import cors from "cors";
-import dotenv from "dotenv";
 import path from "path";
-import fetch from "node-fetch";
 import Scraper from "images-scraper";
 
-dotenv.config();
 const app = express();
 const PORT = process.env.PORT || 3001;
 const router = express.Router();
 const google = new Scraper({
   puppeteer: {
     headless: true,
+    args: ["--no-sandbox"],
   },
   tbs: {
     qdr: "d",

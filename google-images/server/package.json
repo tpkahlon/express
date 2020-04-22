@@ -13,12 +13,9 @@
   "license": "ISC",
   "dependencies": {
     "cors": "^2.8.5",
-    "dotenv": "^8.2.0",
     "esm": "^3.2.25",
     "express": "^4.17.1",
     "images-scraper": "^5.0.3",
-    "mongoose": "^5.9.9",
-    "node-fetch": "^2.6.0",
     "nodemon": "^2.0.3"
   },
   "devDependencies": {
