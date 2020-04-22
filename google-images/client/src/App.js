@@ -10,7 +10,13 @@ const App = () => {
     images: [],
     loading: false,
     error: null,
+    isToggle: false,
   });
+  const [fields, setFields] = useState({ keyword: "", timeFilter: "pastDay" });
+  const handleChange = (e) => {
+    const { name, value } = e.target;
+    setFields({ ...fields, [name]: value });
+  };
   const handleSubmit = (e) => {
     e.preventDefault();
     if (e.target.children.keyword.value.trim() === "") {
@@ -21,11 +27,15 @@ const App = () => {
     handleImages(e.target.children.keyword.value);
     e.target.reset();
   };
+  const handleToggle = (e) => {
+    e.preventDefault();
+    setData({ ...data, isToggle: !data.isToggle });
+  };
   const handleImages = (keyword) => {
     setData({ ...data, loading: true });
     const getImages = async () => {
       try {
-        const URL = `/images/${keyword}`;
+        const URL = `/images/${keyword}?timeFilter=${fields.timeFilter}`;
         const request = await fetch(URL);
         const json = await request.json();
         return json;
@@ -52,7 +62,13 @@ const App = () => {
   if (data.images)
     return (
       <>
-        <Form handleSubmit={handleSubmit} />
+        <Form
+          data={data}
+          fields={fields}
+          handleChange={handleChange}
+          handleSubmit={handleSubmit}
+          handleToggle={handleToggle}
+        />
         <Images data={data} setData={setData} />
       </>
     );

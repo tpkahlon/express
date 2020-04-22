@@ -24,13 +24,17 @@ body {
 form {
   padding: 1rem;
   display: grid;
-  grid-template-columns: auto auto;
+  grid-template-columns: auto auto auto;
   grid-gap: 1rem;
 
   input,
   button {
     border-radius: .5rem;
   }
+}
+
+html .hidden {
+  display: none;
 }
 
 .images {
@@ -73,6 +77,29 @@ form {
   }
 }
 
+.settings {
+  display: grid;
+  grid-template-columns: auto;
+  grid-template-rows: auto;
+  grid-gap: 1rem;
+
+  >div {
+    display: grid;
+    grid-template-columns: auto;
+    grid-template-rows: auto;
+    grid-gap: 1rem;
+
+    >div {
+      display: flex;
+      align-items: center;
+    }
+  }
+
+  input {
+    margin: 0 1rem 0 0;
+  }
+}
+
 .modal {
   height: 100vh;
   display: flex;
@@ -96,6 +123,10 @@ form {
     grid-template-columns: repeat(2, minmax(0, 1fr));
   }
 
+  .settings>div {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
 }
 
 @media #{$md} {
@@ -103,10 +134,18 @@ form {
     grid-template-columns: repeat(3, minmax(0, 1fr));
   }
 
+  .settings>div {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+
 }
 
 @media #{$lg} {
   .images {
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+  }
+
+  .settings>div {
     grid-template-columns: repeat(4, minmax(0, 1fr));
   }
 
