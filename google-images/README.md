@@ -1,3 +1,7 @@
-# Muft
+# Google Search
 
-Online service to listen to free radio stations.
+Scrape google images with advanced filters.
+
+## Goals
+
+- Add advanced filters
