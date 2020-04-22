@@ -1,0 +1,112 @@
+@import url("https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.min.css");
+@import url('https://fonts.googleapis.com/css2?family=Nunito+Sans:ital,wght@0,200;0,300;0,400;0,600;0,700;0,800;0,900;1,200;1,300;1,400;1,600;1,700;1,800;1,900&display=swap');
+
+$xs: "screen and (min-width: 30rem)";
+$sm: "screen and (min-width: 40rem)";
+$md: "screen and (min-width: 50rem)";
+$lg: "screen and (min-width: 60rem)";
+$xl: "screen and (min-width: 70rem)";
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  font-size: 16px;
+  font-family: 'Nunito Sans', sans-serif;
+}
+
+body {
+  font-size: 1rem;
+}
+
+form {
+  padding: 1rem;
+  display: grid;
+  grid-template-columns: auto auto;
+  grid-gap: 1rem;
+
+  input,
+  button {
+    border-radius: .5rem;
+  }
+}
+
+.images {
+  padding: 1rem;
+  min-height: 100vh;
+  height: 100%;
+  border-radius: .5rem;
+  background: #eee;
+  display: grid;
+  grid-gap: 1rem;
+  grid-template-columns: auto;
+  grid-template-rows: auto;
+}
+
+.image {
+  height: inherit;
+  display: block;
+  color: inherit;
+  text-decoration: none;
+  text-transform: capitalize;
+  font-weight: 600;
+
+  figure {
+    height: 100%;
+    margin: 0;
+    display: grid;
+    grid-template-rows: auto 1fr;
+    grid-gap: 1rem;
+  }
+
+  figcaption {
+    align-self: start;
+    word-break: break-all;
+  }
+
+  img {
+    border-radius: .5rem;
+    box-shadow: 0 0 .5rem .25rem rgba(0, 0, 0, .15);
+    width: 100%;
+  }
+}
+
+.modal {
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  img {
+    width: 5rem;
+    height: 5rem;
+  }
+}
+
+@media #{$xs} {
+  .images {
+    grid-template-columns: auto;
+  }
+}
+
+@media #{$sm} {
+  .images {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+}
+
+@media #{$md} {
+  .images {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+
+}
+
+@media #{$lg} {
+  .images {
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+  }
+
+}
