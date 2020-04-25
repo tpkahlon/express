@@ -1,16 +1,10 @@
 import React from "react";
-import Menu from "../components/Menu";
 
 const NotFound = () => {
   return (
-    <>
-      <Menu />
-      <div className="container mt-3">
-        <div className="row">
-          <p>No page found!</p>
-        </div>
-      </div>
-    </>
+    <div className="d-flex justify-content-center align-items-center h-100 min-vh-100">
+      <p>No page found!</p>
+    </div>
   );
 };
 

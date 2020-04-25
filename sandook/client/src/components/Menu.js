@@ -11,22 +11,22 @@ const Menu = ({ location }) => {
       <Navbar.Toggle aria-controls="menu" />
       <Navbar.Collapse id="menu">
         <Nav activeKey={location.pathname} className="ml-auto">
-          <NavLink className="nav-link" to="/one">
+          <NavLink className="nav-link" to="/jaanmahal">
             JaanMahal
           </NavLink>
-          <NavLink className="nav-link" to="/two">
+          <NavLink className="nav-link" to="/mahalvlogs">
             MahalVlogs
           </NavLink>
-          <NavLink className="nav-link" to="/three">
+          <NavLink className="nav-link" to="/punjabivlogger">
             PunjabiVlogger
           </NavLink>
-          <NavLink className="nav-link" to="/four">
+          <NavLink className="nav-link" to="/primeasia">
             PrimeAsia
           </NavLink>
-          <NavLink className="nav-link" to="/five">
+          <NavLink className="nav-link" to="/jusreign">
             JusReign
           </NavLink>
-          <NavLink className="nav-link" to="/six">
+          <NavLink className="nav-link" to="/aktv">
             AKTV
           </NavLink>
         </Nav>

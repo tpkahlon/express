@@ -2,12 +2,15 @@ import React from "react";
 import ReactPlayer from "react-player";
 
 const Channel = ({ video }) => {
+  console.log(video);
   return (
-    <ReactPlayer
-      youtubeConfig={{ preload: true }}
-      url={`https://www.youtube.com${video}`}
-      className="w-100 rounded-lg overflow-hidden bg-dark shadow-lg"
-    />
+    <div className="w-100 rounded-lg overflow-hidden bg-secondary shadow-lg">
+      <ReactPlayer
+        controls={true}
+        width="100%"
+        url={`https://www.youtube.com${video}`}
+      />
+    </div>
   );
 };
 

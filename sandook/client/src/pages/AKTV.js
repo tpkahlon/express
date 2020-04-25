@@ -1,9 +1,10 @@
 import React, { useState, useEffect } from "react";
-import Channel from "./Channel";
-import Loading from "./Loading";
-import ErrorMessage from "./ErrorMessage";
+import Menu from "../components/Menu";
+import Channel from "../components/Channel";
+import Loading from "../components/Loading";
+import ErrorMessage from "../components/ErrorMessage";
 
-const JaanMahal = () => {
+const AKTV = () => {
   const [data, setData] = useState({
     videos: [],
     loading: false,
@@ -14,11 +15,11 @@ const JaanMahal = () => {
     setData({ ...data, loading: true });
     (async () => {
       try {
-        const req = await fetch(`/channels`);
-        const json = await req.json();
+        const req = await fetch(`/api/channels/aktv`);
+        const html = await req.text();
         const parser = new DOMParser();
-        const documentOne = parser.parseFromString(json.one, "text/html");
-        const videos = documentOne.querySelectorAll(`a[href*="/watch?v="]`);
+        const page = parser.parseFromString(html, "text/html");
+        const videos = page.querySelectorAll(`a[href*="/watch?v="]`);
         const videosArray = Array.from(
           new Set(Array.from(videos).map((i) => i.getAttribute("href")))
         );
@@ -37,11 +38,12 @@ const JaanMahal = () => {
   if (data.error) return <ErrorMessage />;
   return (
     <>
+      <Menu />
       <div className="container mt-3">
         <div className="row">
           {data.videos.map((i, index) => (
-            <div className="col col-12 col-sm-6 col-md-4 mb-3">
-              <Channel video={i} key={index} />
+            <div className="col col-12 col-sm-6 col-md-4 mb-3" key={index}>
+              <Channel video={i} />
             </div>
           ))}
         </div>
@@ -50,4 +52,4 @@ const JaanMahal = () => {
   );
 };
 
-export default JaanMahal;
+export default AKTV;

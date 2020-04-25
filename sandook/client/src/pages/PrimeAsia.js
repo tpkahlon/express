@@ -1,9 +1,9 @@
 import React, { useState, useEffect } from "react";
-import Channel from "./Channel";
-import Loading from "./Loading";
-import ErrorMessage from "./ErrorMessage";
+import Channel from "../components/Channel";
+import Loading from "../components/Loading";
+import ErrorMessage from "../components/ErrorMessage";
 
-const PunjabiVlogger = () => {
+const PrimeAsia = () => {
   const [data, setData] = useState({
     videos: [],
     loading: false,
@@ -14,11 +14,11 @@ const PunjabiVlogger = () => {
     setData({ ...data, loading: true });
     (async () => {
       try {
-        const req = await fetch(`/channels`);
-        const json = await req.json();
+        const req = await fetch(`/api/channels/primeasia`);
+        const html = await req.text();
         const parser = new DOMParser();
-        const documentThree = parser.parseFromString(json.three, "text/html");
-        const videos = documentThree.querySelectorAll(`a[href*="/watch?v="]`);
+        const page = parser.parseFromString(html, "text/html");
+        const videos = page.querySelectorAll(`a[href*="/watch?v="]`);
         const videosArray = Array.from(
           new Set(Array.from(videos).map((i) => i.getAttribute("href")))
         );
@@ -40,8 +40,8 @@ const PunjabiVlogger = () => {
       <div className="container mt-3">
         <div className="row">
           {data.videos.map((i, index) => (
-            <div className="col col-12 col-sm-6 col-md-4 mb-3">
-              <Channel video={i} key={index} />
+            <div className="col col-12 col-sm-6 col-md-4 mb-3" key={index}>
+              <Channel video={i} />
             </div>
           ))}
         </div>
@@ -50,4 +50,4 @@ const PunjabiVlogger = () => {
   );
 };
 
-export default PunjabiVlogger;
+export default PrimeAsia;
