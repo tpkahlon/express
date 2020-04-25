@@ -1,5 +1,4 @@
 import React, { useState, useEffect } from "react";
-import Menu from "../components/Menu";
 import Channel from "../components/Channel";
 import Loading from "../components/Loading";
 import ErrorMessage from "../components/ErrorMessage";
@@ -38,7 +37,6 @@ const AKTV = () => {
   if (data.error) return <ErrorMessage />;
   return (
     <>
-      <Menu />
       <div className="container mt-3">
         <div className="row">
           {data.videos.map((i, index) => (
