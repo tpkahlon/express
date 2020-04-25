@@ -24,7 +24,7 @@ const App = () => {
         <Route path="/primeasia" component={PrimeAsia} exact />
         <Route path="/jusreign" component={JusReign} exact />
         <Route path="/aktv" component={AKTV} exact />
-        <Route component={NotFound} />
+        <Route path="*" component={NotFound} />
       </Switch>
       <Footer />
     </Router>

@@ -55,5 +55,12 @@ app.get(`/api/channels/jusreign`, (req, res) => {
 app.get(`/api/channels/aktv`, (req, res) => {
   getData("https://www.youtube.com/user/AKakaAmazing/videos", req, res);
 });
+app.get("/*", function (req, res) {
+  res.sendFile(path.join(__dirname, `./build`, `index.html`), (err) => {
+    if (err) {
+      res.status(500).send(err);
+    }
+  });
+});
 
 app.listen(PORT, console.log(`Running on port ${PORT}...`));
