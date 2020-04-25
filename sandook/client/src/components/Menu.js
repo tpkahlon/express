@@ -6,7 +6,7 @@ const Menu = ({ location }) => {
   return (
     <Navbar bg="light" expand="lg">
       <Navbar.Brand as={Link} to="/">
-        JuGaadi
+        Sandook
       </Navbar.Brand>
       <Navbar.Toggle aria-controls="menu" />
       <Navbar.Collapse id="menu">
