@@ -12,6 +12,7 @@
 
 | Project Title             | Project Link                                                                                                                    |
 | ------------------------- | ------------------------------------------------------------------------------------------------------------------------------- |
+| Node 💡                   | Learn Node through simple exercises                                                                                             |
 | Basics 💡                 | Express API concepts                                                                                                            |
 | Fake Team 📝              | Fake Team handles all CRUD operations for REST API. It enables input validation using Joi.                                      |
 | Rest API with Mongoose 📝 | ES6 compatible code structure of REST API with CRUD operations                                                                  |
@@ -21,4 +22,3 @@
 | Muft 🔥                   | An online application to listen to free radio stations : [Demo](https://muft.herokuapp.com/)                                    |
 | Google Images Search 🔥   | An online application to scrape 100 google images based on timing filter : [Demo](https://google-images-scraper.herokuapp.com/) |
 | Sandook 🔥                | An online application that scrapes my favorite YouTube entertainment channels : [Demo](https://sandook.herokuapp.com/)          |
-| Node 💡                   | Learn node through simple exercises                                                                                             |
