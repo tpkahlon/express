@@ -23,4 +23,4 @@
 | Google Images Search 🔥   | An online application to scrape 100 google images based on timing filter : [Demo](https://google-images-scraper.herokuapp.com/) |
 | Sandook 🔥                | An online application that scrapes my favorite YouTube entertainment channels : [Demo](https://sandook.herokuapp.com/)          |
 | Tiny 🔥                   | Joining the NPM family : [Source](https://www.npmjs.com/package/@tpkahlon/tiny)                                                 |
-| Ontario Services 🔥       | Services provided by Ontario province : [Source](https://https://ontario-services.herokuapp.com)                                |
+| Ontario Services 🔥       | Services provided by Ontario province : [Source](https://ontario-services.herokuapp.com)                                        |
