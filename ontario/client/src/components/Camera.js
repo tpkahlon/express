@@ -18,8 +18,8 @@ const Camera = ({ camera }) => {
           {camera.RoadwayName} / {camera.Organization}
         </Card.Text>
         <LazyLoad height={340}>
-          <div className="mb-3">
-            <Image fluid src={camera.Url} rounded className="shadow" />
+          <div className="mb-3 bg-light shadow">
+            <Image fluid src={camera.Url} rounded className=" w-100" />
           </div>
         </LazyLoad>
         <Table responsive bordered hover striped className="m-0">
