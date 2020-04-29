@@ -20,6 +20,7 @@ const URLS = [
   `https://511on.ca/api/v2/get/cameras`,
   `https://511on.ca/api/v2/get/alerts`,
   `https://511on.ca/api/v2/get/seasonalloadapi`,
+  `https://511on.ca/api/v2/get/roundabouts`,
 ];
 
 app.get("/api/data", function (req, res) {
@@ -33,6 +34,7 @@ app.get("/api/data", function (req, res) {
           cameras: responses[0],
           alerts: responses[1],
           loads: responses[2],
+          roundabouts: responses[3],
         };
         res.status(200).send(result);
       })();

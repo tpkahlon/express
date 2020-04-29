@@ -26,6 +26,9 @@ const Menu = ({ location }) => {
           <NavLink className="nav-link" to="/loads">
             Loads
           </NavLink>
+          <NavLink className="nav-link" to="/roundabouts">
+            RoundAbouts
+          </NavLink>
         </Nav>
       </Navbar.Collapse>
     </Navbar>

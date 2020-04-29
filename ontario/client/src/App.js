@@ -5,6 +5,7 @@ import { Container, Row, Col } from "react-bootstrap";
 import Home from "./pages/Home";
 import About from "./pages/About";
 import Alerts from "./pages/Alerts";
+import RoundAbouts from "./pages/RoundAbouts";
 import Loads from "./pages/Loads";
 import Menu from "./components/Menu";
 import None from "./pages/None";
@@ -24,6 +25,7 @@ const App = () => {
                   <Route path="/" component={Home} exact />
                   <Route path="/alerts" component={Alerts} exact />
                   <Route path="/loads" component={Loads} exact />
+                  <Route path="/roundabouts" component={RoundAbouts} exact />
                   <Route path="/about" component={About} exact />
                   <Route path="*" component={None} />
                 </Switch>
