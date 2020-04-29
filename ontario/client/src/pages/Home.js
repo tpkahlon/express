@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import Loading from "../components/Loading";
 import ErrorMessage from "../components/ErrorMessage";
-import Cameras from "../components/Cameras";
+import Cameras from "../components/Cameras/Cameras";
 
 const Home = () => {
   const [data, setData] = useState({
@@ -13,9 +13,10 @@ const Home = () => {
     setData({ ...data, loading: true });
     (async () => {
       try {
-        const request = await fetch("/api/cameras");
+        const request = await fetch("/api/data");
         const json = await request.json();
-        setData({ ...data, cameras: json, loading: false });
+        const { cameras } = json;
+        setData({ ...data, cameras, loading: false });
       } catch (err) {
         setData({ ...data, error: true, loading: false });
       }

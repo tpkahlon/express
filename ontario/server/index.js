@@ -1,4 +1,4 @@
-import express from "express";
+import express, { response } from "express";
 import cors from "cors";
 import path from "path";
 import fetch from "node-fetch";
@@ -15,18 +15,27 @@ app.use(
 );
 app.use(express.static(path.join(__dirname, `./build`)));
 
-const URL = `https://511on.ca/api/v2/get/cameras`;
+// const URL = `https://511on.ca/api/v2/get/cameras`;
+const URLS = [
+  `https://511on.ca/api/v2/get/cameras`,
+  `https://511on.ca/api/v2/get/alerts`,
+  `https://511on.ca/api/v2/get/seasonalloadapi`,
+];
 
-app.get("/api/cameras", function (req, res) {
+app.get("/api/data", function (req, res) {
   (async () => {
     try {
-      // const promises = URLS.map((url) => fetch(url).then((y) => y.json()));
-      // Promise.all(promises).then((results) => {
-      //   setData({ ...data, locations: results, loading: false });
-      // });
-      const request = await fetch(URL);
-      const json = await request.json();
-      res.status(200).send(json);
+      (async () => {
+        const responses = await Promise.all(
+          URLS.map((url) => fetch(url).then((r) => r.json()))
+        );
+        const result = {
+          cameras: responses[0],
+          alerts: responses[1],
+          loads: responses[2],
+        };
+        res.status(200).send(result);
+      })();
     } catch (err) {
       res
         .status(400)
