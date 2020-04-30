@@ -13,7 +13,7 @@ const GroupedCamera = ({ groupedCamera }) => {
           className="text-decoration-none"
         >
           <Card.Title className="text-capitalize">
-            {groupedCamera.RoadwayName}
+            {groupedCamera.Views[0].Name}
           </Card.Title>
         </a>
         <Card.Text className="text-muted">
@@ -32,6 +32,7 @@ const GroupedCamera = ({ groupedCamera }) => {
         <Table responsive bordered hover striped className="m-0">
           <thead>
             <tr>
+              <th>Name</th>
               <th>Direction Of Travel</th>
               <th>Latitude</th>
               <th>Longitude</th>
@@ -40,6 +41,7 @@ const GroupedCamera = ({ groupedCamera }) => {
           </thead>
           <tbody>
             <tr>
+              <td>{groupedCamera.Views[0].Name}</td>
               <td>{groupedCamera.DirectionOfTravel}</td>
               <td>{groupedCamera.Latitude}</td>
               <td>{groupedCamera.Longitude}</td>

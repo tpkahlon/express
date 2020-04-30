@@ -3,9 +3,9 @@ import { GoHeart } from "react-icons/go";
 
 const Loading = () => {
   return (
-    <div className="vh-100 d-flex justify-content-center align-items-center">
+    <div className="page-default d-flex justify-content-center align-items-center">
       <div className="text-center" style={{ color: "#c8102e" }}>
-        <GoHeart className="heart" size={50} />
+        <GoHeart className="heart" size={80} />
       </div>
     </div>
   );

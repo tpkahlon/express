@@ -34,7 +34,7 @@ const App = () => {
             <Router>
               <ScrollToTop />
               <Menu />
-              <div className="mt-3" style={{ paddingTop: "3.5rem" }}>
+              <div style={{ paddingTop: "4.5rem" }}>
                 <Switch>
                   <Route path="/" component={Home} exact />
                   <Route path="/cameras" component={AllCameras} exact />
@@ -84,11 +84,6 @@ const App = () => {
                     component={AllGroupedCameras}
                     exact
                   />
-                  {/* <Route
-                    path="/groupedcameras"
-                    component={GroupedCameras}
-                    exact
-                  /> */}
                   <Route path="/carpoollots" component={CarPoolLots} exact />
                   <Route path="/about" component={About} exact />
                   <Route path="*" component={None} />

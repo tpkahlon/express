@@ -5,7 +5,7 @@ import { uniqBy } from "lodash";
 
 const Cameras = ({ cameras }) => {
   const revisedData = cameras
-    .filter((i) => i.Status === "Enabled")
+    // .filter((i) => i.Status === "Enabled")
     .sort((a, b) => (a.Name.toLowerCase() < b.Name.toLowerCase() ? -1 : 1));
   const [data, setData] = useState({
     data: revisedData,
@@ -46,9 +46,10 @@ const Cameras = ({ cameras }) => {
       <h2>Cameras</h2>
       <hr />
       <Form as={Row}>
-        <Form.Group as={Col} xs={12} sm={6} controlId="city">
+        <Form.Group as={Col} xs={12} sm={6} controlId="currentCity">
           <Form.Label>Filter Cameras by City</Form.Label>
           <Form.Control
+            id="currentCity"
             as="select"
             custom
             name="currentCity"
@@ -62,9 +63,10 @@ const Cameras = ({ cameras }) => {
             ))}
           </Form.Control>
         </Form.Group>
-        <Form.Group as={Col} xs={12} sm={6} controlId="city">
+        <Form.Group as={Col} xs={12} sm={6} controlId="currentRoadway">
           <Form.Label>Filter Cameras by Roadway</Form.Label>
           <Form.Control
+            id="currentRoadway"
             as="select"
             custom
             name="currentRoadway"

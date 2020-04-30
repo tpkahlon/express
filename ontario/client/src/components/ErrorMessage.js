@@ -2,9 +2,9 @@ import React from "react";
 
 const ErrorMessage = () => {
   return (
-    <div className="vh-100 d-flex justify-content-center align-items-center">
+    <div className="page-default d-flex justify-content-center align-items-center">
       <div className="text-center">
-        Something went wrong. Please try again later.
+        <p>Something went wrong. Please try again later.</p>
       </div>
     </div>
   );
