@@ -11,6 +11,14 @@ import InspectionStations from "./pages/InspectionStations";
 import TruckRestAreas from "./pages/TruckRestAreas";
 import InformationCenters from "./pages/InformationCenters";
 import HovLanes from "./pages/HovLanes";
+import ServiceCentres from "./pages/ServiceCentres";
+import Events from "./pages/Events";
+import FerryTerminals from "./pages/FerryTerminals";
+import CarPoolLots from "./pages/CarPoolLots";
+import TransitHubs from "./pages/TransitHubs";
+import RoadConditions from "./pages/RoadConditions";
+import ConstructionProjects from "./pages/ConstructionProjects";
+import GroupedCameras from "./pages/GroupedCameras";
 import Loads from "./pages/Loads";
 import Menu from "./components/Menu";
 import None from "./pages/None";
@@ -42,12 +50,40 @@ const App = () => {
                     component={TruckRestAreas}
                     exact
                   />
+                  <Route path="/transithubs" component={TransitHubs} exact />
                   <Route
                     path="/informationcenter"
                     component={InformationCenters}
                     exact
                   />
                   <Route path="/hovlanes" component={HovLanes} exact />
+                  <Route
+                    path="/servicecentres"
+                    component={ServiceCentres}
+                    exact
+                  />
+                  <Route path="/events" component={Events} exact />
+                  <Route
+                    path="/ferryterminals"
+                    component={FerryTerminals}
+                    exact
+                  />
+                  <Route
+                    path="/roadconditions"
+                    component={RoadConditions}
+                    exact
+                  />
+                  <Route
+                    path="/constructionprojects"
+                    component={ConstructionProjects}
+                    exact
+                  />
+                  <Route
+                    path="/groupedcameras"
+                    component={GroupedCameras}
+                    exact
+                  />
+                  <Route path="/carpoollots" component={CarPoolLots} exact />
                   <Route path="/about" component={About} exact />
                   <Route path="*" component={None} />
                 </Switch>

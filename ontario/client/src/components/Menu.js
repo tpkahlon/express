@@ -12,7 +12,7 @@ const Menu = ({ location }) => {
           height="24"
           roundedCircle
         />
-        <span className="ml-2">Ontario</span>
+        <span className="ml-2">Ontario Services</span>
       </Navbar.Brand>
       <Navbar.Toggle aria-controls="menu" />
       <Navbar.Collapse id="menu">

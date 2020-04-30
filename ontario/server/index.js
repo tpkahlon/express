@@ -15,7 +15,6 @@ app.use(
 );
 app.use(express.static(path.join(__dirname, `./build`)));
 
-// const URL = `https://511on.ca/api/v2/get/cameras`;
 const URLS = [
   `https://511on.ca/api/v2/get/cameras`,
   `https://511on.ca/api/v2/get/alerts`,
@@ -25,6 +24,14 @@ const URLS = [
   `https://511on.ca/api/v2/get/truckrestareas`,
   `https://511on.ca/api/v2/get/hovlanes`,
   `https://511on.ca/api/v2/get/informationcenter`,
+  `https://511on.ca/api/v2/get/servicecentres`,
+  `https://511on.ca/api/v2/get/ferryterminals`,
+  `https://511on.ca/api/v2/get/carpoollots`,
+  `https://511on.ca/api/v2/get/transithub`,
+  `https://511on.ca/api/v2/get/roadconditions`,
+  `https://511on.ca/api/v2/get/constructionprojects`,
+  `https://511on.ca/api/v2/get/event`,
+  `https://511on.ca/api/v2/get/groupedcameras`,
 ];
 
 app.get("/api/data", function (req, res) {
@@ -43,6 +50,14 @@ app.get("/api/data", function (req, res) {
           truckrestareas: responses[5],
           hovlanes: responses[6],
           informationcenter: responses[7],
+          servicecentres: responses[8],
+          ferryterminals: responses[9],
+          carpoollots: responses[10],
+          transithub: responses[11],
+          roadconditions: responses[12],
+          constructionprojects: responses[13],
+          events: responses[14],
+          groupedcameras: responses[15],
         };
         res.status(200).send(result);
       })();
