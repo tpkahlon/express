@@ -21,6 +21,8 @@ const URLS = [
   `https://511on.ca/api/v2/get/alerts`,
   `https://511on.ca/api/v2/get/seasonalloadapi`,
   `https://511on.ca/api/v2/get/roundabouts`,
+  `https://511on.ca/api/v2/get/inspectionstations`,
+  `https://511on.ca/api/v2/get/truckrestareas`,
 ];
 
 app.get("/api/data", function (req, res) {
@@ -35,6 +37,8 @@ app.get("/api/data", function (req, res) {
           alerts: responses[1],
           loads: responses[2],
           roundabouts: responses[3],
+          inspectionstations: responses[4],
+          truckrestareas: responses[5],
         };
         res.status(200).send(result);
       })();
