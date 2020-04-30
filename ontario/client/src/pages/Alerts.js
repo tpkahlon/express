@@ -75,6 +75,8 @@ const Alerts = () => {
   if (!data.alerts || data.alerts.length === 0) return <Loading />;
   return (
     <>
+      <h2>Alerts</h2>
+      <hr />
       <Row>
         {data.alerts
           .sort((a, b) => (a.StartTime > b.StartTime ? -1 : 1))

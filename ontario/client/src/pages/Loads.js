@@ -54,6 +54,8 @@ const Loads = () => {
   if (!data.loads || data.loads.length === 0) return <Loading />;
   return (
     <>
+      <h2>Loads</h2>
+      <hr />
       <Row>
         <Col xs className="mb-3">
           <Table responsive bordered hover striped>

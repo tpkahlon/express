@@ -23,6 +23,8 @@ const URLS = [
   `https://511on.ca/api/v2/get/roundabouts`,
   `https://511on.ca/api/v2/get/inspectionstations`,
   `https://511on.ca/api/v2/get/truckrestareas`,
+  `https://511on.ca/api/v2/get/hovlanes`,
+  `https://511on.ca/api/v2/get/informationcenter`,
 ];
 
 app.get("/api/data", function (req, res) {
@@ -39,6 +41,8 @@ app.get("/api/data", function (req, res) {
           roundabouts: responses[3],
           inspectionstations: responses[4],
           truckrestareas: responses[5],
+          hovlanes: responses[6],
+          informationcenter: responses[7],
         };
         res.status(200).send(result);
       })();

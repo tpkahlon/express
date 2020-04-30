@@ -17,23 +17,11 @@ const Menu = ({ location }) => {
       <Navbar.Toggle aria-controls="menu" />
       <Navbar.Collapse id="menu">
         <Nav activeKey={location.pathname} className="ml-auto">
+          <NavLink className="nav-link" to="/">
+            Home
+          </NavLink>
           <NavLink className="nav-link" to="/about">
             About
-          </NavLink>
-          <NavLink className="nav-link" to="/alerts">
-            Alerts
-          </NavLink>
-          <NavLink className="nav-link" to="/loads">
-            Loads
-          </NavLink>
-          <NavLink className="nav-link" to="/roundabouts">
-            RoundAbouts
-          </NavLink>
-          <NavLink className="nav-link" to="/inspectionstations">
-            Inspection Stations
-          </NavLink>
-          <NavLink className="nav-link" to="/truckrestareas">
-            TruckRestAreas
           </NavLink>
         </Nav>
       </Navbar.Collapse>

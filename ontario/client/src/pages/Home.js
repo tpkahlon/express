@@ -1,31 +1,45 @@
-import React, { useState, useEffect } from "react";
-import Loading from "../components/Loading";
-import ErrorMessage from "../components/ErrorMessage";
-import Cameras from "../components/Cameras/Cameras";
+import React from "react";
+import { Row, Col, ListGroup } from "react-bootstrap";
+import { Link } from "react-router-dom";
 
 const Home = () => {
-  const [data, setData] = useState({
-    cameras: [],
-    error: false,
-    loading: false,
-  });
-  useEffect(() => {
-    setData({ ...data, loading: true });
-    (async () => {
-      try {
-        const request = await fetch("/api/data");
-        const json = await request.json();
-        const { cameras } = json;
-        setData({ ...data, cameras, loading: false });
-      } catch (err) {
-        setData({ ...data, error: true, loading: false });
-      }
-    })();
-    // eslint-disable-next-line
-  }, []);
-  if (data.error) return <ErrorMessage />;
-  if (!data.cameras || data.cameras.length === 0) return <Loading />;
-  return <Cameras cameras={data.cameras} />;
+  return (
+    <>
+      <h2>Welcome to Ontario Services...</h2>
+      <hr />
+      <p>Please see the following services below:</p>
+      <Row>
+        <Col xs>
+          <ListGroup>
+            <ListGroup.Item action as={Link} to="/alerts">
+              Alerts
+            </ListGroup.Item>
+            <ListGroup.Item action as={Link} to="/cameras">
+              Cameras
+            </ListGroup.Item>
+            <ListGroup.Item action as={Link} to="/hovlanes">
+              HOV Lanes
+            </ListGroup.Item>
+            <ListGroup.Item action as={Link} to="/informationcenter">
+              Information Centers
+            </ListGroup.Item>
+            <ListGroup.Item action as={Link} to="/inspectionstations">
+              Inspection Stations
+            </ListGroup.Item>
+            <ListGroup.Item action as={Link} to="/loads">
+              Loads
+            </ListGroup.Item>
+            <ListGroup.Item action as={Link} to="/roundabouts">
+              RoundAbouts
+            </ListGroup.Item>
+            <ListGroup.Item action as={Link} to="/truckrestareas">
+              Truck Rest Areas
+            </ListGroup.Item>
+          </ListGroup>
+        </Col>
+      </Row>
+    </>
+  );
 };
 
 export default Home;

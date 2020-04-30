@@ -65,6 +65,8 @@ const TruckRestAreas = () => {
     return <Loading />;
   return (
     <>
+      <h2>Truck Rest Areas</h2>
+      <hr />
       <Row>
         <Col xs className="mb-3">
           <Table responsive bordered hover striped>

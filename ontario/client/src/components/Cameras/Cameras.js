@@ -43,6 +43,8 @@ const Cameras = ({ cameras }) => {
     .sort((a, b) => (a.toLowerCase() < b.toLowerCase() ? -1 : 1));
   return (
     <>
+      <h2>Cameras</h2>
+      <hr />
       <Form as={Row}>
         <Form.Group as={Col} xs={12} sm={6} controlId="city">
           <Form.Label>Filter Cameras by City</Form.Label>
