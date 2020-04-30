@@ -4,6 +4,7 @@ import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import { Container, Row, Col } from "react-bootstrap";
 import Home from "./pages/Home";
 import AllCameras from "./pages/AllCameras";
+import AllGroupedCameras from "./pages/AllGroupedCameras";
 import About from "./pages/About";
 import Alerts from "./pages/Alerts";
 import RoundAbouts from "./pages/RoundAbouts";
@@ -18,7 +19,7 @@ import CarPoolLots from "./pages/CarPoolLots";
 import TransitHubs from "./pages/TransitHubs";
 import RoadConditions from "./pages/RoadConditions";
 import ConstructionProjects from "./pages/ConstructionProjects";
-import GroupedCameras from "./pages/GroupedCameras";
+// import GroupedCameras from "./pages/GroupedCameras";
 import Loads from "./pages/Loads";
 import Menu from "./components/Menu";
 import None from "./pages/None";
@@ -80,9 +81,14 @@ const App = () => {
                   />
                   <Route
                     path="/groupedcameras"
-                    component={GroupedCameras}
+                    component={AllGroupedCameras}
                     exact
                   />
+                  {/* <Route
+                    path="/groupedcameras"
+                    component={GroupedCameras}
+                    exact
+                  /> */}
                   <Route path="/carpoollots" component={CarPoolLots} exact />
                   <Route path="/about" component={About} exact />
                   <Route path="*" component={None} />
