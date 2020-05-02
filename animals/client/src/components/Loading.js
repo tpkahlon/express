@@ -1,9 +1,14 @@
+import styles from '../App.module.css';
 import React from 'react';
 
-const Loading = () => {
+const Loading = ({ data }) => {
   return (
-    <div className="vh-100 d-flex justify-content-center align-items-center">
-      <p>Loading...</p>
+    <div
+      className={`w-100 position-fixed d-flex justify-content-center align-items-center ${
+        data.loading ? styles.loading : ''
+      }`}
+    >
+      <p className="m-0 font-weight-bold">Loading...</p>
     </div>
   );
 };

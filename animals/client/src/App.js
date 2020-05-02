@@ -44,10 +44,10 @@ const App = () => {
     // eslint-disable-next-line
   }, [data.limit]);
   if (data.error) return <ErrorMessage />;
-  if (data.loading) return <Loading />;
   return (
     <>
-      <Navbar bg="light" expand="lg">
+      {data.loading && <Loading data={data} />}
+      <Navbar bg="light" collapse="xs">
         <Navbar.Brand>Animals</Navbar.Brand>
         <Navbar.Toggle aria-controls="menu" />
         <Navbar.Collapse id="menu">
