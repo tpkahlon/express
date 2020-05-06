@@ -28,6 +28,7 @@ const Channel = ({ channel }) => {
           url={`https://www.youtube.com${channelURL}`}
           light={channelThumbnail}
           className="channel__thumb"
+          controls={true}
         />
       }
       <div className="channel__name">{channel.name}</div>

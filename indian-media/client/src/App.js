@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
-import Data from './Channels';
+import ReactLoading from 'react-loading';
+import Channels from './Channels';
 
 const App = () => {
   const [data, setData] = useState({
@@ -21,9 +22,24 @@ const App = () => {
     // eslint-disable-next-line
   }, []);
   if (data.loading || !data.content || data.content.length === 0)
-    return <div>Loading...</div>;
-  if (data.error) return <div>Something happened, try again...</div>;
-  return <Data data={data.content} />;
+    return (
+      <div className="page">
+        <ReactLoading type="bars" color="#488726" />
+      </div>
+    );
+  if (data.error)
+    return (
+      <div className="page">
+        <p>Something happened, try again...</p>
+      </div>
+    );
+  return (
+    <>
+      <div className="app">
+        <Channels data={data.content} />
+      </div>
+    </>
+  );
 };
 
 export default App;
