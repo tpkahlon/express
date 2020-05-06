@@ -1,0 +1,66 @@
+@import url('https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.min.css');
+@import url('https://fonts.googleapis.com/css2?family=Nunito:ital,wght@0,200;0,300;0,400;0,600;0,700;0,800;0,900;1,200;1,300;1,400;1,600;1,700;1,800;1,900&display=swap');
+
+$xs: "screen and (min-width: 30rem)";
+$sm: "screen and (min-width: 40rem)";
+$md: "screen and (min-width: 50rem)";
+$lg: "screen and (min-width: 60rem)";
+$xl: "screen and (min-width: 70rem)";
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  font-size: 16px;
+}
+
+body {
+  margin: 1rem;
+  font-size: 1rem;
+  font-family: 'Nunito', sans-serif;
+}
+
+#root {
+  min-height: 100vh;
+  display: grid;
+  grid-template-columns: minmax(0, 1fr);
+  grid-template-rows: auto;
+  grid-gap: 1rem;
+}
+
+.channel {
+  display: grid;
+  grid-gap: 1rem;
+
+  &__thumb {
+    box-shadow: 0 0 .2rem .1rem rgba(0, 0, 0, .25);
+    width: 100% !important;
+    overflow: hidden;
+    object-fit: cover;
+    border-radius: .5rem;
+  }
+
+  &__name {
+    font-weight: bold;
+    font-size: 1.5rem;
+  }
+}
+
+@media #{$md} {
+  #root {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media #{$lg} {
+  #root {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+}
+
+@media #{$xl} {
+  #root {
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+  }
+}
