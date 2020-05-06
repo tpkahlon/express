@@ -16,7 +16,6 @@ const App = () => {
       return t;
     })()
       .then((t) => {
-        console.log(t);
         setData({ ...data, content: t, loading: false });
       })
       .catch((e) => setData({ ...data, error: e }));

@@ -61,7 +61,6 @@ app.get('/api/data', function (req, res) {
         .replace(/[^\x00-\x7F]/g, '')
         .split(' ')
         .join('+');
-      console.log(customURL);
       return await fetch(
         `https://www.youtube.com/results?search_query=${customURL}&sp=EgJAAQ%253D%253D`
       ).then((y) => y.text());
