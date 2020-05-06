@@ -61,6 +61,7 @@ app.get('/api/data', function (req, res) {
         .replace(/[^\x00-\x7F]/g, '')
         .split(' ')
         .join('+');
+      console.log(customURL);
       return await fetch(
         `https://www.youtube.com/results?search_query=${customURL}&sp=EgJAAQ%253D%253D`
       ).then((y) => y.text());
@@ -68,10 +69,11 @@ app.get('/api/data', function (req, res) {
     const channelResults = await Promise.all(channelPromises);
     let channelsLinks = channelResults.map((response) => ({ url: response }));
     // MERGE: https://stackoverflow.com/questions/46849286/merge-two-array-of-objects-based-on-a-key
-    const revisedWikiListNames = uniqBy(wikiListNames, 'name');
-    return revisedWikiListNames
+    const revisedData = wikiListNames
       .map((item, i) => Object.assign({}, item, channelsLinks[i]))
       .sort((a, b) => (a.name.toLowerCase() < b.name.toLowerCase() ? -1 : 1));
+    const revisedWikiListNames = uniqBy(revisedData, 'name');
+    return revisedWikiListNames;
   })()
     .then((d) => res.status(200).send(d))
     .catch((e) => res.status(400).send({ message: 'Network error!' }));
