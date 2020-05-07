@@ -27,3 +27,4 @@
 | WP 🔥                     | `WP-Info` is a service that runs all REST parameters based on domain provided: [Demo](https://wp-info.herokuapp.com/)           |
 | Animals 🔥                | Animals highlighted by O'reilly publications: [Demo](https://oreilly-animals.herokuapp.com/)                                    |
 | Indian News (LIVE) 🔥     | Indian News (LIVE): [Demo](https://indian-news-live.herokuapp.com/)                                                             |
+| Punjabi News              | [Demo](https://punjabi-news.herokuapp.com/)                                                                                     |
