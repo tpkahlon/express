@@ -1,9 +1,12 @@
-# Indian News Channels
+# Punjabi News
+
+## Purpose
+
+Read latest news about your village, hiding targeted advertisements, horoscopes, medieval age customs etc.!
 
 ## Instructions
 
-- Perform advanced usage of JavaScript by scraping `WikiPedia` and `YouTube`.
-- Do not use any form of data other than above sites.
+- Scrape districts, international and other news sections
 
 ## Execution
 
