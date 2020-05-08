@@ -1,0 +1,35 @@
+$xs: "screen and (min-width: 36rem)";
+$sm: "screen and (min-width: 48rem)";
+$md: "screen and (min-width: 62rem)";
+$lg: "screen and (min-width: 75rem)";
+
+body {
+  background: #000;
+}
+
+span {
+  line-height: 1;
+  font-size: 2rem;
+}
+
+a {
+  color: inherit;
+  margin-left: 2rem;
+
+  &:hover,
+  &:focus,
+  &:active {
+    color: #999;
+  }
+}
+
+.news {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin: 0 0 2rem;
+
+  &:last-child {
+    margin-bottom: 0;
+  }
+}
