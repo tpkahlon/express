@@ -76,7 +76,7 @@ const App = () => {
             <p>Total CAMS: {data.content.fullcount}</p>
             {data.limit !== 0 && (
               <p>
-                You are watching CAM {data.limit - 50}-{data.limit} out of&nbsp;
+                You are watching CAM {data.limit}-{data.limit + 50} out of&nbsp;
                 {Number(data.content.fullcount)}.
               </p>
             )}
