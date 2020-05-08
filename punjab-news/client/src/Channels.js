@@ -1,29 +1,59 @@
 import React from 'react';
-import { Container, Row, Col } from 'react-bootstrap';
+import { Row, Col, Accordion, Card } from 'react-bootstrap';
+
+const TITLES = [
+  'ਪਹਿਲਾ ਸਫ਼ਾ',
+  'ਰਾਸ਼ਟਰੀ-ਅੰਤਰਰਾਸ਼ਟਰੀ',
+  'ਪੰਜਾਬ / ਜਨਰਲ',
+  'ਖੇਡ ਸੰਸਾਰ',
+  'ਸੰਪਾਦਕੀ',
+  'ਦਿੱਲੀ',
+  'ਗੁਰਦਾਸਪੁਰ / ਬਟਾਲਾ / ਪਠਾਨਕੋਟ',
+  'ਬਠਿੰਡਾ / ਮਾਨਸਾ / ਸੰਗਰੂਰ / ਬਰਨਾਲਾ',
+  'ਫਰੀਦਕੋਟ / ਮੁਕਤਸਰ / ਫਿਰੋਜ਼ਪੁਰ, ਫਾਜ਼ਿਲਕਾ / ਮੋਗਾ',
+  'ਚੰਡੀਗੜ੍ਹ / ਰੋਪੜ / ਪਟਿਆਲਾ / ਫ਼ਤਿਹਗੜ੍ਹ',
+  'ਲੁਧਿਆਣਾ / ਖੰਨਾ / ਜਗਰਾਓਂ',
+  'ਅੰਮ੍ਰਿਤਸਰ / ਤਰਨ-ਤਾਰਨ',
+  'ਜਲੰਧਰ / ਕਪੂਰਥਲਾ / ਨਵਾਂਸ਼ਹਿਰ / ਹੁਸ਼ਿਆਰਪੁਰ',
+];
 
 const Channels = ({ html }) => {
+  let links = [];
   const { content } = html;
-  const parser = new DOMParser();
-  const dom = parser.parseFromString(content, 'text/html');
-  const links = Array.from(
-    dom.querySelectorAll("a[href*='/news/'], a[href*='/latestnews/']")
-  )
-    .map((link) => link.textContent)
-    .filter((link) => link !== 'ਪੂਰੀ ਖ਼ਬਰ  »');
+  content.forEach((i) => {
+    const parser = new DOMParser();
+    const dom = parser.parseFromString(i, 'text/html');
+    links.push(
+      Array.from(dom.querySelectorAll("a[href*='/news/']")).map(
+        (link) => link.textContent
+      )
+    );
+  });
   return (
-    <>
-      <Container>
-        <Row>
-          <Col xs={12}>
-            <div className="my-3">
-              {links.map((link, index) => (
-                <p key={index}>{link}</p>
-              ))}
-            </div>
-          </Col>
-        </Row>
-      </Container>
-    </>
+    <Row>
+      <Col xs={12}>
+        <Accordion defaultActiveKey="0">
+          {links.map((link, index) => {
+            return (
+              <Card bg="dark" text="light">
+                <Accordion.Toggle as={Card.Header} eventKey={index}>
+                  <h1>{TITLES[index]}</h1>
+                </Accordion.Toggle>
+                <Accordion.Collapse eventKey={index}>
+                  <Card.Body>
+                    {link
+                      .filter((i) => !i.includes('ਪੂਰੀ'))
+                      .map((j, k) => (
+                        <p key={k}>{j}</p>
+                      ))}
+                  </Card.Body>
+                </Accordion.Collapse>
+              </Card>
+            );
+          })}
+        </Accordion>
+      </Col>
+    </Row>
   );
 };
 

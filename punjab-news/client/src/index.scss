@@ -3,11 +3,14 @@ $sm: "screen and (min-width: 48rem)";
 $md: "screen and (min-width: 62rem)";
 $lg: "screen and (min-width: 75rem)";
 
-.app {
-  color: #fff;
+body {
   background: #000;
 }
 
 p {
   font-size: 2rem;
+
+  &:last-child {
+    margin-bottom: 0;
+  }
 }

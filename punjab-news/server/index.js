@@ -2,6 +2,7 @@ import express from 'express';
 import cors from 'cors';
 import path from 'path';
 import fetch from 'node-fetch';
+import moment from 'moment';
 
 const app = express();
 const PORT = process.env.PORT || 3001;
@@ -17,9 +18,27 @@ app.use(express.static(path.join(__dirname, `./build`)));
 
 app.get('/api/data', function (req, res) {
   (async () => {
-    const r = await fetch(`http://beta.ajitjalandhar.com/`);
-    const t = await r.text();
-    return t;
+    const now = `${moment().format('YYYYMMDD')}`;
+    const urls = [
+      `http://beta.ajitjalandhar.com/`,
+      `http://beta.ajitjalandhar.com/edition/${now}/6.cms`,
+      `http://beta.ajitjalandhar.com/edition/${now}/2.cms`,
+      `http://beta.ajitjalandhar.com/edition/${now}/5.cms`,
+      `http://beta.ajitjalandhar.com/edition/${now}/4.cms`,
+      `http://beta.ajitjalandhar.com/edition/${now}/76.cms`,
+      `http://beta.ajitjalandhar.com/edition/${now}/12.cms`,
+      `http://beta.ajitjalandhar.com/edition/${now}/162.cms`,
+      `http://beta.ajitjalandhar.com/edition/${now}/163.cms`,
+      `http://beta.ajitjalandhar.com/edition/${now}/164.cms`,
+      `http://beta.ajitjalandhar.com/edition/${now}/165.cms`,
+      `http://beta.ajitjalandhar.com/edition/${now}/166.cms`,
+      `http://beta.ajitjalandhar.com/edition/${now}/167.cms`,
+    ];
+    const promises = urls.map(
+      async (url) => await fetch(url).then((y) => y.text())
+    );
+    const results = await Promise.all(promises).then((results) => results);
+    return results;
   })()
     .then((d) => res.status(200).send(d))
     .catch((e) => res.status(400).send({ message: 'Network error!' }));

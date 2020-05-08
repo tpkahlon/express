@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import ReactLoading from 'react-loading';
 import Channels from './Channels';
-import { Container } from 'react-bootstrap';
+import { Container, Image } from 'react-bootstrap';
 
 const App = () => {
   const [data, setData] = useState({
@@ -13,7 +13,7 @@ const App = () => {
     setData({ ...data, loading: true });
     (async () => {
       const r = await fetch(`/api/data`);
-      const t = await r.text();
+      const t = await r.json();
       return t;
     })()
       .then((t) => {
@@ -24,26 +24,27 @@ const App = () => {
   }, []);
   if (data.loading)
     return (
-      <div className="app">
-        <div className="vh-100 d-flex justify-content-center align-items-center">
-          <ReactLoading type="bars" color="#488726" />
-        </div>
+      <div className="vh-100 d-flex justify-content-center align-items-center">
+        <ReactLoading type="bars" color="#488726" />
       </div>
     );
   if (data.error)
     return (
-      <div className="app">
-        <div className="vh-100 d-flex justify-content-center align-items-center">
-          <p>Something happened, Try again...</p>
-        </div>
+      <div className="vh-100 d-flex justify-content-center align-items-center">
+        <p>Something happened, Try again...</p>
       </div>
     );
   return (
-    <div className="app">
-      <Container fluid>
-        <Channels html={data} />
-      </Container>
-    </div>
+    <Container className="my-3">
+      <div className="text-center">
+        <Image
+          className="mb-3"
+          fluid
+          src="http://beta.ajitjalandhar.com/images/mainpage.png"
+        />
+      </div>
+      <Channels html={data} />
+    </Container>
   );
 };
 
