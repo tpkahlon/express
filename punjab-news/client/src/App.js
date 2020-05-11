@@ -40,7 +40,7 @@ const App = () => {
         <Image
           className="mb-3"
           fluid
-          src="http://beta.ajitjalandhar.com/images/mainpage.png"
+          src="https://www.ajitjalandhar.com/cimages/mainpage.gif"
         />
       </div>
       <Channels html={data} />
