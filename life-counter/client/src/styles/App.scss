@@ -4,19 +4,19 @@
 @import 'bootstrap/scss/bootstrap';
 
 .page {
-  min-height: $maxVH;
-  padding-top: $flush;
+  min-height: #{$maxVH};
+  padding-top: #{#{$flush}};
 }
 
 .loading {
   position: fixed;
-  top: $flush;
+  top: #{$flush};
   left: 0;
   right: 0;
   bottom: 0;
   z-index: 2;
   width: 100%;
-  height: calc($maxVH - $flush);
+  height: calc(#{$maxVH} - #{$flush});
   display: flex;
   justify-content: center;
   align-items: center;
