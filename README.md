@@ -28,3 +28,4 @@
 | Animals 🔥                | Animals highlighted by O'reilly publications: [Demo](https://oreilly-animals.herokuapp.com/)                                    |
 | Indian News (LIVE) 🔥     | Indian News (LIVE): [Demo](https://indian-news-live.herokuapp.com/)                                                             |
 | Punjabi News              | Usage of Multiple promises by filtering News titles: [Demo](https://punjabi-news.herokuapp.com/)                                |
+| Human life spent on Games | Highlight games and their usage in years: [Demo](https://human-life-spent-on-games.herokuapp.com/)                              |
