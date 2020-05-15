@@ -42,20 +42,27 @@ const App = () => {
   if (settings.error || (settings.error && settings.content.message))
     return alert('Please try again later!');
   return (
-    <div className='page bg-dark'>
-      <Menu
-        data={settings}
-        handlePrevious={handlePrevious}
-        handleNext={handleNext}
-      />
-      {settings.loading && (
-        <div className='loading'>
-          <ReactLoading type='spokes' color='#fff' height='3rem' width='3rem' />
-        </div>
-      )}
-      <Data data={settings.content} />
+    <>
+      <div className='page bg-dark'>
+        <Menu
+          data={settings}
+          handlePrevious={handlePrevious}
+          handleNext={handleNext}
+        />
+        {settings.loading && (
+          <div className='loading'>
+            <ReactLoading
+              type='spokes'
+              color='#fff'
+              height='3rem'
+              width='3rem'
+            />
+          </div>
+        )}
+        <Data data={settings.content} />
+      </div>
       <Footer />
-    </div>
+    </>
   );
 };
 

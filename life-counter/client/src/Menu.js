@@ -10,12 +10,12 @@ const Menu = ({ data, handleNext, handlePrevious }) => {
       variant='dark'
       expand='lg'
       fixed='top'
-      className='shadow-lg'
+      className='shadow-lg flex-nowrap'
     >
-      <Navbar.Brand href='/'>
-        <div className='d-flex align-items-center'>
+      <Navbar.Brand href='/' className='text-truncate'>
+        <div className='d-flex align-items-center flex-nowrap'>
           <FaSteam />
-          <span className='ml-2'>
+          <span className='ml-2 text-truncate'>
             <em>Human life spent on Games</em>
           </span>
         </div>
