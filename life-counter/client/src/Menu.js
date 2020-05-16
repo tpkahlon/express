@@ -1,5 +1,5 @@
 import React from 'react';
-import { Navbar, Form, Button } from 'react-bootstrap';
+import { Navbar, Form, Button, ButtonGroup } from 'react-bootstrap';
 import { FaSteam } from 'react-icons/fa';
 import { GrLinkNext, GrLinkPrevious } from 'react-icons/gr';
 
@@ -21,22 +21,24 @@ const Menu = ({ data, handleNext, handlePrevious }) => {
         </div>
       </Navbar.Brand>
       <Form inline className='ml-auto'>
-        {data.page > 1 && (
+        <ButtonGroup aria-label='Pagination buttons'>
+          {data.page > 1 && (
+            <Button
+              onClick={handlePrevious}
+              variant='secondary'
+              className='d-flex align-items-center'
+            >
+              <GrLinkPrevious />
+            </Button>
+          )}
           <Button
-            onClick={handlePrevious}
-            variant='secondary'
+            onClick={handleNext}
+            variant='light'
             className='d-flex align-items-center'
           >
-            <GrLinkPrevious />
+            <GrLinkNext />
           </Button>
-        )}
-        <Button
-          onClick={handleNext}
-          variant='light'
-          className='d-flex align-items-center ml-2'
-        >
-          <GrLinkNext />
-        </Button>
+        </ButtonGroup>
       </Form>
     </Navbar>
   );
