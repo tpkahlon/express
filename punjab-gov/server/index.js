@@ -19,40 +19,48 @@ app.use(express.static(path.join(__dirname, `./build`)));
 
 app.get('/api/data', function (req, res) {
   (async () => {
-    const url = `https://punjab.gov.in/districts-of-punjab/`;
-    const r = await fetch(url);
-    const t = await r.text();
-    const dom = new JSDOM(t);
-    const links = dom.window.document.querySelectorAll('area');
-    const source = [
-      ...new Set(
-        Array.from(links)
-          .filter((i) => i.getAttribute('href') !== '#')
-          .map((i) =>
-            i
-              .getAttribute('href')
-              .replace('http://', 'https://')
-              .replace('.in/', '.in')
-              .replace('www.', '')
-          )
-          .sort((a, b) => (a.toLowerCase() < b.toLowerCase() ? -1 : 1))
-      ),
-    ];
-    const status = await Promise.all(
+    const scrapeSite = async () => {
+      const url = `https://punjab.gov.in/districts-of-punjab/`;
+      const r = await fetch(url);
+      const t = await r.text();
+      const dom = new JSDOM(t);
+      const links = dom.window.document.querySelectorAll('area');
+      const source = [
+        ...new Set(
+          Array.from(links)
+            .filter((i) => i.getAttribute('href') !== '#')
+            .map((i) =>
+              i
+                .getAttribute('href')
+                .replace('http://', 'https://')
+                .replace('.in/', '.in')
+                .replace('www.', '')
+            )
+            .sort((a, b) => (a.toLowerCase() < b.toLowerCase() ? -1 : 1))
+        ),
+      ];
+      return source;
+    };
+    const result = [];
+    const source = await scrapeSite();
+    const statusCode = await Promise.all(
       source.map((url) => {
-        const test = (async () => {
+        const status = (async () => {
           const r = await fetch(url);
           return r.ok;
         })()
           .then((d) => d)
           .catch(() => false);
-        return test;
+        return status;
       })
     );
-    return { source, status };
+    source.map((i, index) =>
+      result.push({ source: i, status: statusCode[index] })
+    );
+    return result;
   })()
     .then((d) => res.status(200).send(d))
-    .catch((e) => res.status(400).send({ message: 'Network error!' }));
+    .catch(() => res.status(400).send({ message: 'Network error!' }));
 });
 
 // app.get('/*', function (req, res) {

@@ -3,54 +3,42 @@ import { Container, Row, Col, Table, Badge } from 'react-bootstrap';
 
 const Data = ({ settings }) => {
   const { content } = settings;
-  const { status, source } = content;
   return (
     <Container>
       <Row>
-        <Col xs={6} className='mt-3'>
+        <Col xs={12} className='mt-3'>
           <Table variant='dark' size='sm' responsive striped bordered hover>
             <thead>
               <tr>
                 <th>District</th>
-              </tr>
-            </thead>
-            <tbody>
-              {source.map((i, index) => (
-                <tr key={index}>
-                  <td>
-                    <a
-                      href={i}
-                      target='_blank'
-                      rel='noopener noreferrer'
-                      className='text-light text-decoration-none'
-                    >
-                      {i}
-                    </a>
-                  </td>
-                </tr>
-              ))}
-            </tbody>
-          </Table>
-        </Col>
-        <Col xs={6} className='mt-3'>
-          <Table variant='dark' size='sm' responsive striped bordered hover>
-            <thead>
-              <tr>
                 <th>Status</th>
               </tr>
             </thead>
             <tbody>
-              {status.map((i, index) => (
-                <tr key={index}>
-                  <td>
-                    {i ? (
-                      <Badge variant='success'>Live</Badge>
-                    ) : (
-                      <Badge variant='danger'>Down</Badge>
-                    )}
-                  </td>
-                </tr>
-              ))}
+              {content.map((i, index) => {
+                const { status, source } = i;
+                return (
+                  <tr key={index}>
+                    <td>
+                      <a
+                        href={source}
+                        target='_blank'
+                        rel='noopener noreferrer'
+                        className='text-light text-decoration-none'
+                      >
+                        {source}
+                      </a>
+                    </td>
+                    <td>
+                      {status ? (
+                        <Badge variant='success'>Live</Badge>
+                      ) : (
+                        <Badge variant='danger'>Down</Badge>
+                      )}
+                    </td>
+                  </tr>
+                );
+              })}
             </tbody>
           </Table>
         </Col>
