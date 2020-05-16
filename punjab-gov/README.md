@@ -1,6 +1,6 @@
-# Human life spent on Games
+# Punjab Districts Websites Health Report
 
-- Highlights total time spent in years
+This application allows you to quickly find websites run by Districts of Punjab and check their status report.
 
 ## Stack
 
