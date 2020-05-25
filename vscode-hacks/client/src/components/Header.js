@@ -16,7 +16,15 @@ const Header = () => {
           target='_blank'
           rel='noopener noreferrer'
         >
-          View Source
+          Reference
+        </Button>
+        <Button
+          variant='secondary'
+          href='https://github.com/tpkahlon/express/tree/master/vscode-hacks'
+          target='_blank'
+          rel='noopener noreferrer'
+        >
+          Code
         </Button>
         <Button
           variant='success'
