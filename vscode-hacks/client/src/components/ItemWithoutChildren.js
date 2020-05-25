@@ -41,7 +41,7 @@ const ItemWithoutChildren = ({
                     <div className='cc d-flex align-items-center justify-content-end'>
                       <span>{children}</span>
                       <CopyToClipboard
-                        text={children[0].props.value.replace(/`/gi, '')}
+                        text={children[0].props.value.replace(/`/g, '')}
                         onCopy={() =>
                           setSettings({
                             ...settings,

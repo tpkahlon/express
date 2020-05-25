@@ -20,37 +20,39 @@ const ItemWithChildren = ({ index, source, title, settings, setSettings }) => {
               </tr>
             </thead>
             <tbody>
-              {source.map((i, index) => (
-                <tr key={index}>
-                  <td className='text-right'>
-                    <div className='cc d-flex align-items-center justify-content-end'>
-                      <span>
-                        <ReactMarkdown source={i.title} />
-                      </span>
-                      <CopyToClipboard
-                        text={i.title}
-                        onCopy={() =>
-                          setSettings({
-                            ...settings,
-                            show: true,
-                          })
-                        }
-                      >
-                        <Button
-                          size='sm'
-                          variant='secondary'
-                          className='d-flex align-items-center ml-3'
+              {source.map((i, index) => {
+                return (
+                  <tr key={index}>
+                    <td className='text-right'>
+                      <div className='cc d-flex align-items-center justify-content-end'>
+                        <span>
+                          <ReactMarkdown source={i.title} />
+                        </span>
+                        <CopyToClipboard
+                          text={i.title.replace(/`/g, '')}
+                          onCopy={() =>
+                            setSettings({
+                              ...settings,
+                              show: true,
+                            })
+                          }
                         >
-                          <MdContentCopy />
-                        </Button>
-                      </CopyToClipboard>
-                    </div>
-                  </td>
-                  <td>
-                    <ReactMarkdown source={i.text} />
-                  </td>
-                </tr>
-              ))}
+                          <Button
+                            size='sm'
+                            variant='secondary'
+                            className='d-flex align-items-center ml-3'
+                          >
+                            <MdContentCopy />
+                          </Button>
+                        </CopyToClipboard>
+                      </div>
+                    </td>
+                    <td>
+                      <ReactMarkdown source={i.text} />
+                    </td>
+                  </tr>
+                );
+              })}
             </tbody>
           </Table>
         </Card.Body>
