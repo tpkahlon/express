@@ -1,5 +1,5 @@
 import React from 'react';
-import { Jumbotron, Button } from 'react-bootstrap';
+import { Jumbotron, Button, ButtonGroup } from 'react-bootstrap';
 
 const Header = () => {
   return (
@@ -9,14 +9,24 @@ const Header = () => {
         The VS Code Hacks is a resource for building JavaScript/React based
         applications quickly.
       </p>
-      <Button
-        variant='dark'
-        href='https://github.com/dsznajder/vscode-es7-javascript-react-snippets/blob/master/README.md'
-        target='_blank'
-        rel='noopener noreferrer'
-      >
-        View Source
-      </Button>
+      <ButtonGroup aria-label='Action buttons'>
+        <Button
+          variant='dark'
+          href='https://github.com/dsznajder/vscode-es7-javascript-react-snippets/blob/master/README.md'
+          target='_blank'
+          rel='noopener noreferrer'
+        >
+          View Source
+        </Button>
+        <Button
+          variant='success'
+          href='https://marketplace.visualstudio.com/items?itemName=dsznajder.es7-react-js-snippets'
+          target='_blank'
+          rel='noopener noreferrer'
+        >
+          Download
+        </Button>
+      </ButtonGroup>
     </Jumbotron>
   );
 };
