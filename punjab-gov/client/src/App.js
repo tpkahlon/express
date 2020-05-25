@@ -25,7 +25,11 @@ const App = () => {
     // eslint-disable-next-line
   }, []);
   if (settings.error || (settings.error && settings.content.message))
-    return <div>Please try again later!</div>;
+    return (
+      <div className='page bg-dark d-flex justify-content-center align-items-center text-white'>
+        Please try again later!
+      </div>
+    );
   if (settings.content === null || !settings.content) return <Loading />;
   return (
     <>
