@@ -4,7 +4,7 @@ import { Jumbotron, Button, ButtonGroup } from 'react-bootstrap';
 const Header = () => {
   return (
     <Jumbotron fluid className='m-0 text-muted rounded p-3'>
-      <h1>VS Code Hacks!</h1>
+      <h1>VSCode Hacks</h1>
       <p>
         The VS Code Hacks is a resource for building JavaScript/React based
         applications quickly.
