@@ -6,7 +6,7 @@ const Header = () => {
     <Jumbotron fluid className='m-0 text-muted rounded p-3'>
       <h1>VSCode Hacks</h1>
       <p>
-        The VS Code Hacks is a resource for building JavaScript/React based
+        The VSCode Hacks is a resource for building JavaScript/React based
         applications quickly.
       </p>
       <ButtonGroup aria-label='Action buttons'>
