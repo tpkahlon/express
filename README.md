@@ -30,3 +30,4 @@
 | Punjabi News                           | Usage of Multiple promises by filtering News titles: [Demo](https://punjabi-news.herokuapp.com/)                                |
 | Human life spent on Games              | Highlight games and their usage in years: [Demo](https://human-life-spent-on-games.herokuapp.com/)                              |
 | Punjab Districts Website Health Report | See sites if they are live or down: [Demo](https://punjab-districts.herokuapp.com/)                                             |
+| VS Code Hacks                          | Inspired from Shopify Cheat Sheet: [Demo](https://vscode-hacks.herokuapp.com/)                                                  |
