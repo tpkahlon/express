@@ -4,7 +4,8 @@ import Item from './Item';
 import Header from './Header';
 import Footer from './Footer';
 
-const Content = ({ content }) => {
+const Content = ({ settings, setSettings }) => {
+  const { content } = settings;
   let data = [];
   let keys = [
     'Basic Methods',
@@ -59,6 +60,8 @@ const Content = ({ content }) => {
                     index={index}
                     source={i.text}
                     title={i.title}
+                    settings={settings}
+                    setSettings={setSettings}
                   />
                 ))}
             </Accordion>

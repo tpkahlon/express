@@ -5,20 +5,23 @@
 }
 
 table {
-  margin: 0;
-
-  @extend .table-responsive;
-  @extend .w-100;
-  @extend .table;
-  @extend .table-striped;
-  @extend .table-bordered;
-  @extend .table-hover;
-  @extend .table-sm;
   @extend .text-white;
 
   thead,
   tbody {
     width: 50%;
+  }
+  thead {
+    th {
+      &:last-child {
+        justify-content: flex-start !important;
+      }
+    }
+    .cc {
+      button {
+        display: none !important;
+      }
+    }
   }
   th,
   td {
@@ -30,9 +33,22 @@ table {
         @extend .text-white;
         @extend .font-weight-bold;
       }
+      .cc {
+        span {
+          p {
+            margin: 0 !important;
+          }
+        }
+      }
     }
 
     &:last-child {
+      .cc {
+        justify-content: flex-start !important;
+        button {
+          display: none !important;
+        }
+      }
       pre {
         margin: 0;
         white-space: pre-wrap;
@@ -54,4 +70,14 @@ table {
 
 .jumbotron {
   background: darken($gray-800, 5%) !important;
+}
+
+.notification {
+  position: absolute;
+  &__toast {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+  }
 }
