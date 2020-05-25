@@ -1,0 +1,55 @@
+@import 'bootstrap/scss/bootstrap';
+
+.app {
+  min-height: 100vh;
+}
+
+table {
+  margin: 0;
+
+  // @extend .table-responsive;
+  @extend .w-100;
+  @extend .table;
+  @extend .table-striped;
+  @extend .table-bordered;
+  @extend .table-hover;
+  @extend .table-sm;
+  @extend .text-white;
+
+  thead,
+  tbody {
+    width: 50%;
+  }
+  th,
+  td {
+    padding: 1rem !important;
+  }
+  td {
+    &:first-child {
+      code {
+        @extend .text-white;
+        @extend .font-weight-bold;
+      }
+    }
+
+    &:last-child {
+      pre {
+        margin: 0;
+      }
+      code {
+        @extend .text-success;
+      }
+    }
+  }
+}
+
+.card {
+  &:hover,
+  &:focus {
+    background: darken($gray-800, 15%) !important;
+  }
+}
+
+.jumbotron {
+  background: darken($gray-800, 5%) !important;
+}

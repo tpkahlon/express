@@ -1,0 +1,32 @@
+{
+  "name": "server",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "proxy": "http://localhost:3001",
+  "scripts": {
+    "compile": "cd ../client && rm -rf ../server/build && npm run build && cd ../server && mv ../client/build .",
+    "start": "node -r esm ./index",
+    "dev": "nodemon ./index --exec babel-node -e js"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "cors": "^2.8.5",
+    "esm": "^3.2.25",
+    "express": "^4.17.1",
+    "md-2-json": "^1.0.6",
+    "node-fetch": "^2.6.0",
+    "nodemon": "^2.0.3"
+  },
+  "devDependencies": {
+    "babel-cli": "^6.26.0",
+    "babel-preset-env": "^1.7.0",
+    "babel-preset-stage-0": "^6.24.1"
+  },
+  "engines": {
+    "node": "13.x",
+    "npm": "6.x"
+  }
+}
