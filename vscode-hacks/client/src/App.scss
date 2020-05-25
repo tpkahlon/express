@@ -7,7 +7,7 @@
 table {
   margin: 0;
 
-  // @extend .table-responsive;
+  @extend .table-responsive;
   @extend .w-100;
   @extend .table;
   @extend .table-striped;

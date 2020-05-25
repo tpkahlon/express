@@ -10,7 +10,7 @@ const ItemWithChildren = ({ index, source, title }) => {
       </Accordion.Toggle>
       <Accordion.Collapse eventKey={index}>
         <Card.Body>
-          <Table striped bordered hover size='sm' className='m-0'>
+          <Table striped bordered hover responsive size='sm' className='m-0'>
             <thead>
               <tr>
                 <th className='text-right'>Prefix</th>
