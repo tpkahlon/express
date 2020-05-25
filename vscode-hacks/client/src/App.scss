@@ -47,6 +47,7 @@ table {
 .card {
   &:hover,
   &:focus {
+    cursor: pointer;
     background: darken($gray-800, 15%) !important;
   }
 }

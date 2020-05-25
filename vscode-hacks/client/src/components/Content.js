@@ -2,6 +2,7 @@ import React from 'react';
 import { Container, Row, Col, Accordion } from 'react-bootstrap';
 import Item from './Item';
 import Header from './Header';
+import Footer from './Footer';
 
 const Content = ({ content }) => {
   let data = [];
@@ -47,7 +48,7 @@ const Content = ({ content }) => {
             <Header />
           </Col>
           <Col xs={12} className='my-3'>
-            <Accordion className='shadow-lg'>
+            <Accordion className='rounded'>
               {data
                 .sort((a, b) =>
                   a.title.toLowerCase() < b.title.toLowerCase() ? -1 : 1
@@ -61,6 +62,9 @@ const Content = ({ content }) => {
                   />
                 ))}
             </Accordion>
+          </Col>
+          <Col xs={12} className='mt-0 mb-3'>
+            <Footer />
           </Col>
         </Row>
       </Container>
