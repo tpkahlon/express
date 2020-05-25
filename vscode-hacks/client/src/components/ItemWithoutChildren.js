@@ -1,6 +1,6 @@
 import React from 'react';
 import ReactMarkdown from 'react-markdown';
-import { Accordion, Card } from 'react-bootstrap';
+import { Accordion, Card, Table } from 'react-bootstrap';
 
 const ItemWithoutChildren = ({ index, source, title }) => {
   return (
@@ -10,7 +10,25 @@ const ItemWithoutChildren = ({ index, source, title }) => {
       </Accordion.Toggle>
       <Accordion.Collapse eventKey={index}>
         <Card.Body>
-          <ReactMarkdown source={source} />
+          <ReactMarkdown
+            source={source}
+            renderers={{
+              table: (props) => {
+                return (
+                  <Table
+                    striped
+                    bordered
+                    hover
+                    responsive
+                    size='sm'
+                    className='m-0'
+                  >
+                    {props.children}
+                  </Table>
+                );
+              },
+            }}
+          />
         </Card.Body>
       </Accordion.Collapse>
     </Card>
