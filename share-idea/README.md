@@ -2,9 +2,7 @@
 
 ## Demo
 
-- [View Demo](https://go.aws/34QbTQl)
-
-The demo instance will be active until April 14, 2020 because of AWS EC2 free-tier limitations.
+- [View Demo](https://discuss-idea.herokuapp.com/)
 
 ## Features
 

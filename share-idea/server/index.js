@@ -1,23 +1,27 @@
-import express from "express";
-import { MongoClient, ObjectId } from "mongodb";
-import path from "path";
+import express from 'express';
+import cors from 'cors';
+import dotenv from 'dotenv';
+import { MongoClient, ObjectId } from 'mongodb';
+import path from 'path';
 
 const app = express();
 const PORT = process.env.PORT || 3001;
 
+dotenv.config();
+app.use(cors());
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
-app.use(express.static(path.join(__dirname, "/build")));
+app.use(express.static(path.join(__dirname, '/build')));
 
 const withDB = async (operations, res) => {
   try {
-    const client = await MongoClient.connect(`mongodb://localhost:27017`, {
+    const client = await MongoClient.connect(process.env.MONGO_URI, {
       useNewUrlParser: true,
       useUnifiedTopology: true,
     });
-    const db = client.db("ideas");
-    const collection = db.collection("idea");
+    const db = client.db('ideas');
+    const collection = db.collection('idea');
     await operations(db, collection);
     client.close();
   } catch (error) {

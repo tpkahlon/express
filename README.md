@@ -26,7 +26,7 @@
 | Punjabi News                           | Usage of Multiple promises by filtering News titles: [Demo](https://punjabi-news.herokuapp.com/)                                |
 | Rest API with Mongoose 📝              | ES6 compatible code structure of REST API with CRUD operations                                                                  |
 | Sandook 🔥                             | An online application that scrapes my favorite YouTube entertainment channels : [Demo](https://sandook.herokuapp.com/)          |
-| Share Idea                             | Simple React Application built on basic REST API and MERN stack: [Demo](https://go.aws/34QbTQl)                                 |
+| Share Idea                             | Simple React Application built on basic REST API and MERN stack: [Demo](https://discuss-idea.herokuapp.com/)                    |
 | Share Projects 🔥                      | MERN site to add, edit, delete, view Project links: [Demo](https://share-projects.herokuapp.com/)                               |
 | Tiny 🔥                                | Joining the NPM family : [Source](https://www.npmjs.com/package/@tpkahlon/tiny)                                                 |
 | VS Code Hacks                          | Inspired from Shopify Cheat Sheet: [Demo](https://vscode-hacks.herokuapp.com/)                                                  |
