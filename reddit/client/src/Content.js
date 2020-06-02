@@ -1,40 +1,32 @@
 import React from 'react';
-import { Container, Row, Col, ListGroup, Badge } from 'react-bootstrap';
-import Moment from 'react-moment';
+import { Container, Row, Col, ListGroup } from 'react-bootstrap';
+import ReactLoading from 'react-loading';
+import Items from './Items';
 
-const Content = ({ content }) => {
-  const { children } = content.data;
-  const items = children.map((i) => {
-    const { id, title, url, created_utc } = i.data;
+const Content = ({ data }) => {
+  const { content, l } = data;
+  if (l || content === null) {
     return (
-      <ListGroup.Item
-        key={id}
-        href={url}
-        target='_blank'
-        rel='noopener noreferrer'
-        action
-        variant='dark'
-      >
-        <div className='d-flex align-items-center justify-content-between'>
-          <span className='mr-3'>{title}</span>
-          <Badge variant='primary'>
-            <Moment unix fromNow date={created_utc} />
-          </Badge>
-        </div>
-      </ListGroup.Item>
+      <div className='text-white bg-dark d-flex justify-content-center align-items-center loading'>
+        <ReactLoading type='balls' color='#fff' height='5rem' width='5rem' />
+      </div>
     );
-  });
-  return (
-    <div className='bg-dark text-white py-3'>
-      <Container>
-        <Row>
-          <Col>
-            <ListGroup>{items}</ListGroup>
-          </Col>
-        </Row>
-      </Container>
-    </div>
-  );
+  } else {
+    const { children } = content.data;
+    return (
+      <div className='text-white bg-dark mt-3 app'>
+        <Container>
+          <Row>
+            <Col>
+              <ListGroup>
+                <Items children={children} />
+              </ListGroup>
+            </Col>
+          </Row>
+        </Container>
+      </div>
+    );
+  }
 };
 
 export default Content;

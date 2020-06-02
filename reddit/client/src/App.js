@@ -14,7 +14,7 @@ const App = () => {
     count: 0,
     options: [],
   });
-  const { content, l, e, after, before, url, keyword } = data;
+  const { e, after, before, url, keyword } = data;
   const handleNext = () => {
     setData({
       ...data,
@@ -87,7 +87,6 @@ const App = () => {
     // eslint-disable-next-line
   }, [keyword]);
   if (e) return <Default message='Error...' />;
-  if (l || content === null) return <Default message='Loading...' />;
   return (
     <>
       <Keyword
@@ -97,7 +96,7 @@ const App = () => {
         handleNext={handleNext}
         handlePrevious={handlePrevious}
       />
-      <Content content={content} />
+      <Content data={data} />
     </>
   );
 };
