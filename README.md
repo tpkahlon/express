@@ -14,7 +14,7 @@
 | Ontario Services                       | Services provided by Ontario province                                                      | [Demo](https://ontario-services.herokuapp.com)          |
 | Punjab Districts Website Health Report | See sites if they are live or down                                                         | [Demo](https://punjab-districts.herokuapp.com)          |
 | Punjabi News                           | Usage of Multiple promises by filtering News titles                                        | [Demo](https://punjabi-news.herokuapp.com)              |
-| Reddit Light                           | Enjoy light version of Reddit                                                              | [Demo](https://reddit-light.herokuapp)                  |
+| Reddit Light                           | Enjoy light version of Reddit                                                              | [Demo](https://reddit-light.herokuapp.com)              |
 | Rest API with Mongoose                 | ES6 compatible code structure of REST API with CRUD operations                             | Clone locally                                           |
 | Sandook                                | An online application that scrapes my favorite YouTube entertainment channels              | [Demo](https://sandook.herokuapp.com)                   |
 | Share Idea                             | Simple React Application built on basic REST API and MERN stack                            | [Demo](https://discuss-idea.herokuapp.com)              |
