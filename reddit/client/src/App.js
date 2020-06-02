@@ -12,8 +12,9 @@ const App = () => {
     e: false,
     l: false,
     count: 0,
+    options: [],
   });
-  const { content, l, e, after, before, url, count, keyword } = data;
+  const { content, l, e, after, before, url, keyword } = data;
   const handleNext = () => {
     setData({
       ...data,
@@ -41,6 +42,20 @@ const App = () => {
       count: 0,
     });
   };
+  const getSearches = () => {
+    (async () => {
+      const r = await fetch(`/api/search/${keyword}`);
+      const j = await r.json();
+      return j;
+    })()
+      .then((d) => {
+        setData({
+          ...data,
+          options: d.data.children.map((i) => i.data.display_name),
+        });
+      })
+      .catch((e) => setData({ ...data, e: true }));
+  };
   const getData = () => {
     setData({ ...data, l: true });
     (async () => {
@@ -63,6 +78,14 @@ const App = () => {
     getData();
     // eslint-disable-next-line
   }, [after, before, url]);
+  useEffect(() => {
+    if (keyword.trim() !== '') {
+      getSearches();
+    } else {
+      setData({ ...data, options: [] });
+    }
+    // eslint-disable-next-line
+  }, [keyword]);
   if (e) return <Default message='Error...' />;
   if (l) return <Default message='Loading...' />;
   return (
@@ -71,12 +94,10 @@ const App = () => {
         data={data}
         handleChange={handleChange}
         handleSubmit={handleSubmit}
+        handleNext={handleNext}
+        handlePrevious={handlePrevious}
       />
       <Content content={content} />
-      {before && count !== 0 && (
-        <button onClick={handlePrevious}>Previous</button>
-      )}
-      {after && <button onClick={handleNext}>Next</button>}
     </>
   );
 };

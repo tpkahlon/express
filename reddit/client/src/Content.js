@@ -1,12 +1,12 @@
 import React from 'react';
-import { Container, Row, Col, ListGroup } from 'react-bootstrap';
+import { Container, Row, Col, ListGroup, Badge } from 'react-bootstrap';
+import Moment from 'react-moment';
 
 const Content = ({ content }) => {
   if (content === null) return <div>Hello</div>;
   const { children } = content.data;
-  // console.log(children);
   const items = children.map((i) => {
-    const { id, title, url } = i.data;
+    const { id, title, url, created_utc } = i.data;
     return (
       <ListGroup.Item
         key={id}
@@ -14,13 +14,19 @@ const Content = ({ content }) => {
         target='_blank'
         rel='noopener noreferrer'
         action
+        variant='dark'
       >
-        {title}
+        <div className='d-flex align-items-center justify-content-between'>
+          <span className='mr-3'>{title}</span>
+          <Badge variant='primary'>
+            <Moment unix fromNow date={created_utc} />
+          </Badge>
+        </div>
       </ListGroup.Item>
     );
   });
   return (
-    <div className='bg-dark text-white'>
+    <div className='bg-dark text-white py-3'>
       <Container>
         <Row>
           <Col>

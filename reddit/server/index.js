@@ -15,6 +15,18 @@ app.use(
 );
 app.use(express.static(path.join(__dirname, `./build`)));
 
+app.get('/api/search/:keyword', function (req, res) {
+  const { keyword } = req.params;
+  (async () => {
+    const url = `https://www.reddit.com/subreddits/search.json?q=${keyword}`;
+    const r = await fetch(url);
+    const t = await r.json();
+    return t;
+  })()
+    .then((d) => res.status(200).send(d))
+    .catch(() => res.status(400).send({ message: 'Network error!' }));
+});
+
 app.get('/api/data/:keyword/:limit', function (req, res) {
   const { keyword, limit } = req.params;
   (async () => {
