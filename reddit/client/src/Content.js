@@ -3,7 +3,6 @@ import { Container, Row, Col, ListGroup, Badge } from 'react-bootstrap';
 import Moment from 'react-moment';
 
 const Content = ({ content }) => {
-  if (content === null) return <div>Hello</div>;
   const { children } = content.data;
   const items = children.map((i) => {
     const { id, title, url, created_utc } = i.data;

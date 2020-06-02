@@ -87,7 +87,7 @@ const App = () => {
     // eslint-disable-next-line
   }, [keyword]);
   if (e) return <Default message='Error...' />;
-  if (l) return <Default message='Loading...' />;
+  if (l || content === null) return <Default message='Loading...' />;
   return (
     <>
       <Keyword
