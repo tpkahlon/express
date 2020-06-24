@@ -5,6 +5,7 @@ const Header = () => {
   return (
     <Jumbotron fluid className='m-0 text-muted rounded p-3'>
       <h1>VSCode Hacks</h1>
+      <h2>Check out SnipSnap, a better alternative to Code Shortcuts.</h2>
       <p>
         The VSCode Hacks is a resource for building JavaScript/React based
         applications quickly.
@@ -33,6 +34,14 @@ const Header = () => {
           rel='noopener noreferrer'
         >
           Download
+        </Button>
+        <Button
+          variant='danger'
+          href='https://github.com/snipsnapdev/snipsnap'
+          target='_blank'
+          rel='noopener noreferrer'
+        >
+          SnipSnap
         </Button>
       </ButtonGroup>
     </Jumbotron>
